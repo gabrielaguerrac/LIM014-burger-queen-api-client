@@ -5,6 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'buger-queen';
+  public mostrarTexto: boolean = true;
+
+  ocultarTexto(value: boolean){
+    this.mostrarTexto = value
+}
 }
