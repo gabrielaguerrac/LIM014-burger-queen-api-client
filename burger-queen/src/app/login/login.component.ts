@@ -1,4 +1,4 @@
-import { Component , OnInit , OnDestroy } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 
 @Component({
     selector: 'login',
@@ -18,10 +18,10 @@ import { Component , OnInit , OnDestroy } from '@angular/core';
     }
 
     // método que permite iniciar el componente luego del constructor
-    ngOnInit(){
-        console.log('OnInit ejecutado');
-    }
+    ngOnInit(){}
+    
     ngOnDestroy(){
         console.log('OnDestroy ejecutado');
     }
   }
+
