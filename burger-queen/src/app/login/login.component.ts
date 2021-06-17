@@ -1,20 +1,21 @@
-import { Component , OnInit , OnDestroy } from '@angular/core';
+import { Component , OnInit , OnDestroy, Input } from '@angular/core';
+
+import { AuthService } from '../services/auth.service';
+import { Token } from '../models/auth';
 
 @Component({
     selector: 'login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
   })
+
   export class LoginComponent implements OnInit {
-    public titulo: string;
-    public listado: string;
+    email= "";
+    password="";
 
     // método que se ejecuta cuando carga un objeto
-    constructor(){
-        this.titulo = "Manager";
-        this.listado = "Input";
+    constructor(private authService: AuthService){
         
-        console.log('achuz!');
     }
 
     // método que permite iniciar el componente luego del constructor
@@ -24,4 +25,21 @@ import { Component , OnInit , OnDestroy } from '@angular/core';
     ngOnDestroy(){
         console.log('OnDestroy ejecutado');
     }
+
+    // login(){
+    //     console.log(email.value);
+    //     console.log(password.value);
+    // }
+
+    public sendCredentials(){
+        this.authService.postCredential({email: this.email, password: this.password})  
+        .subscribe((response: Token) => {
+            console.log(response);
+            // get email
+            //add el cambio de pantalla
+        }) 
+    }
+    
+
+    
   }

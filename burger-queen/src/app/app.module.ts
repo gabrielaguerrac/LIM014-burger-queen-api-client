@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { UserService } from './services/user.services';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/Login.component';
+import { LoginComponent } from './login/login.component';
 import { BarSideWaiterComponentComponent } from './bar-side-waiter-component/bar-side-waiter-component.component';
 
 @NgModule({
@@ -19,9 +22,10 @@ import { BarSideWaiterComponentComponent } from './bar-side-waiter-component/bar
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
