@@ -14,3 +14,5 @@ export class AppComponent {
     this.mostrarTexto = value
   }
 }
+
+

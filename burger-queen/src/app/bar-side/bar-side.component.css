@@ -1,0 +1,8 @@
+.container-icon {
+    background-color: #ADDCB8;
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    height: 45rem;
+    justify-content: space-between;
+}

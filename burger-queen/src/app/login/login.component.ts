@@ -1,30 +1,29 @@
 import { Component , OnInit } from '@angular/core';
 
+import { AuthService } from '../services/auth/auth.service';
+import { Token } from '../models/auth';
+
 @Component({
     selector: 'login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
-  })
-  export class LoginComponent implements OnInit {
-    public titulo: string;
-    public listado: string;
-    // private email: string;
-    // private password: string;
-    
-    // método que se ejecuta cuando carga un objeto
-    constructor(){
-      this.titulo = 'Master';
-      this.listado = 'Lista';
-        // this.email = document.getElementById('email-input');
-        // this.password = "Input";
-        
-        console.log('achuz!');
-    }
+})
 
-    // método que permite iniciar el componente luego del constructor
-    ngOnInit(){}
-    ngOnDestroy(){
-        console.log('OnDestroy ejecutado');
-    }
+export class LoginComponent implements OnInit {
+  email= "";
+  password="";
+  // método que se ejecuta cuando carga un objeto
+  constructor(private authService: AuthService){ 
   }
+  // método que permite iniciar el componente luego del constructor
+  ngOnInit(){}
 
+  public sendCredentials(){
+      this.authService.postCredential({email: this.email, password: this.password})  
+      .subscribe((response: Token) => {
+          console.log(response);
+          // get email
+          //add el cambio de pantalla
+      }) 
+  }
+}

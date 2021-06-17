@@ -7,10 +7,21 @@
 import { Injectable } from '@angular/core';
 // es un decorador que sirve para inyectar nuestro objeto en otra clase
 // y no estarlo creando siempre
-@Injectable({
-  providedIn: 'root'
-})
-export class UsersService {
+import { HttpClient } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
+import { LoginComponent } from "../../login/login.component";
 
-  constructor() { }
+@Injectable({
+    providedIn: "root"
+})
+
+export class UsersService {
+    constructor(private httpclient: HttpClient) {
+        console.log('constructor de loginService');
+        
+    }
+
+    // public post(url: string, body){
+    //     return this.httpclient.post(url, body);
+    // }
 }

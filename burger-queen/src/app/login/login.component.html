@@ -10,11 +10,19 @@
         <header>
              <img src="../assets/logo-fondo-green.jpg" class="" alt="logo-burger" />
             <h2> MANAGER/ EMPLOYEES </h2>
-        
-           
+
+            <form (submit)="sendCredentials()">
+                <label for="email">
+                    <input type="email" name="email" [(ngModel)]="email" placeholder="Email"/>
+                </label>
+                
+                <label for="password">
+                    <input type="password" name="password" [(ngModel)]="password" placeholder="Password"/>
+                </label>
             <p>Forgot password?</p>
-    
-            <button id="btn-login">LOGIN</button>
+            
+            <button>LOGIN</button>
+        </form>
         </header>
     </body>
 </html>
