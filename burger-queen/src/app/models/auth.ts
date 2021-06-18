@@ -6,3 +6,5 @@ export interface Auth {
 export interface Token {
     token: string
 }
+
+

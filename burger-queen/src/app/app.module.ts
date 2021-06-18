@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { UserService } from './services/user.services';
+import { UserService } from './services/user.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

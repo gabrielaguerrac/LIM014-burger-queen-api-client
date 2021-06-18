@@ -11,20 +11,25 @@
              <img src="../assets/logo-fondo-green.jpg" class="" alt="logo-burger" />
             <h2> MANAGER/ EMPLOYEES </h2>
 
-            <form (submit)="sendCredentials()">
+            <form #formLogin="ngForm" (submit)="sendCredentials(formLogin)">
             
                 <label for="email">
-                    Email
-                    <input type="email" name="email" [(ngModel)]="email"/>
-                  </label>
+                    <input type="email"  name="email"  [(ngModel)]="email" required placeholder="email" 
+                    />
+                  </label><br>
+                <span *ngIf="!email">
+                    Please your email
+                </span><br>
                 
                 <label for="password">
-                    Password
-                    <input type="password" name="password" [(ngModel)]="password"/>
-                </label>
+                    <input type="password" name="password" [(ngModel)]="password" required placeholder="password"/>
+                </label><br>
+                <span *ngIf="!password">
+                    Please your password
+                </span>
             <p>Forgot password?</p>
             
-            <button>LOGIN</button>
+            <button [disabled]="!formLogin.form.valid">LOGIN</button>
         </form>
         </header>
     </body>
