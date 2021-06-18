@@ -1,6 +1,7 @@
 import { Component , OnInit } from '@angular/core';
 
 import { AuthService } from '../services/auth/auth.service';
+import { Form } from '@angular/forms';
 import { Token } from '../models/auth';
 
 @Component({
@@ -18,12 +19,13 @@ export class LoginComponent implements OnInit {
   // método que permite iniciar el componente luego del constructor
   ngOnInit(){}
 
-  public sendCredentials(){
+  public sendCredentials(form: any){
       this.authService.postCredential({email: this.email, password: this.password})  
       .subscribe((response: Token) => {
           console.log(response);
           // get email
           //add el cambio de pantalla
       }) 
+      form.reset();
   }
 }

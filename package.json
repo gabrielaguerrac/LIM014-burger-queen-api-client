@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/gabrielaguerrac/LIM014-burger-queen-api-client/issues"
   },
-  "homepage": "https://github.com/gabrielaguerrac/LIM014-burger-queen-api-client#readme"
+  "homepage": "https://github.com/gabrielaguerrac/LIM014-burger-queen-api-client#readme",
+  "devDependencies": {}
 }
