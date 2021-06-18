@@ -12,7 +12,7 @@ export class AppComponent {
 
   ocultarTexto(value: boolean){
     this.mostrarTexto = value
-}
+  }
 }
 
 

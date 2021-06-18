@@ -1,15 +1,18 @@
+// archivo que permite iniciar la app de angular
+// compendio de módulos que se va creando
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { UserService } from './services/user.service';
+import { UsersService } from './services/user/users.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { BarSideWaiterComponentComponent } from './bar-side-waiter-component/bar-side-waiter-component.component';
+import { BarSideComponent } from './bar-side/bar-side.component';
+
 
 @NgModule({
   // aquí va las directivas y componentes y pipes?
@@ -17,7 +20,7 @@ import { BarSideWaiterComponentComponent } from './bar-side-waiter-component/bar
   declarations: [
     AppComponent,
     LoginComponent,
-    BarSideWaiterComponentComponent
+    BarSideComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { BarSideWaiterComponentComponent } from './bar-side-waiter-component/bar
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
