@@ -18,6 +18,7 @@ import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
 import { ProductivityKitchenComponent } from './productivity-kitchen/productivity-kitchen.component';
 import { UserComponent } from './user/user.component';
+import { RoleSelectorComponent } from './role-selector/role-selector.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { UserComponent } from './user/user.component';
     WaiterTablesComponent,
     OrdersKitchenComponent,
     ProductivityKitchenComponent,
-    UserComponent
+    UserComponent,
+    RoleSelectorComponent
   ],
   imports: [
     BrowserModule,

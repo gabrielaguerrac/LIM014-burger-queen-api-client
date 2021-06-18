@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap');
+
+@media screen and (min-device-width : 700px) and (max-device-width : 1500px){
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+body {
+    display: flex;
+    margin: -12px;
+}
+
+section{
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+img{
+    width: 65%;
+    height: 100vh;
+    object-fit:cover;
+}
+
+#btns {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    padding: 10px
+}
+
+.btnSelector {
+    width: 60%;
+    height: 10%;
+    border-radius: 20px;
+    font-size: 36px;
+    font-family: 'Barlow', sans-serif;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.btnSelector:hover{
+    background-color: #ADDCB8;
+    color:#ADDCB8;
+    transition: 0.8rem 1rem;
+}
+
+}

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     ){ }
   // método que permite iniciar el componente luego del constructor
   ngOnInit(){}
-  redirigir(){
+  redirect(){
     this.router.navigate(['/user']);
 }
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           // get email
           //add el cambio de pantalla
         // si el usuario es admin: true, entonces que se cumplea el redirigir a user
-        this.redirigir();
+        this.redirect();
       }) 
       form.reset();
   }
