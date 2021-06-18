@@ -12,6 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { BarSideComponent } from './bar-side/bar-side.component';
+import { ProductsComponent } from './products/products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
+import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
+import { ProductivityKitchenComponent } from './productivity-kitchen/productivity-kitchen.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -20,7 +26,13 @@ import { BarSideComponent } from './bar-side/bar-side.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    BarSideComponent
+    BarSideComponent,
+    ProductsComponent,
+    OrdersComponent,
+    WaiterTablesComponent,
+    OrdersKitchenComponent,
+    ProductivityKitchenComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
