@@ -6,3 +6,8 @@
     height: 45rem;
     justify-content: space-between;
 }
+
+/* cuando eliges un ícono de la barra de navegación, se debe cambiar el color*/
+/* .active {
+    background-color: blue;
+} */
