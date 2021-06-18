@@ -13,11 +13,12 @@
 
             <form (submit)="sendCredentials()">
                 <label for="email">
-                    <input type="email" name="email" [(ngModel)]="email" placeholder="Email"/>
+                    <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required/>
+                    <span *ngIf="!email"></span>
                 </label>
                 
                 <label for="password">
-                    <input type="password" name="password" [(ngModel)]="password" placeholder="Password"/>
+                    <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required/>
                 </label>
             <p>Forgot password?</p>
             
