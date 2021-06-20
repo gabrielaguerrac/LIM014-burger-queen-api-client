@@ -16,7 +16,7 @@ body {
     margin: -12px;
 }
 
-section{
+section {
     padding: 0;
     display: flex;
     justify-content: space-around;
@@ -24,7 +24,7 @@ section{
 }
 
 img{
-    width: 65%;
+    width: 60%;
     height: 100vh;
     object-fit:cover;
 }
