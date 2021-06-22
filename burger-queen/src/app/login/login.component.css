@@ -1,0 +1,55 @@
+@media screen and (min-device-width : 700px) and (max-device-width : 1500px){
+section{
+    /* width: 100%; */
+    display: flex;
+}
+
+img{
+    width: 60%;
+    height: 100vh;
+    object-fit:cover;
+}
+
+form{
+    width: 40%;
+    font-family: 'Barlow';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: space-between;  
+}
+
+form > h2{
+    font-family: 'Barlow';
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 20px;
+}
+
+button {
+    width: 50%;
+    margin: 10px;
+    font-size: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 20px;
+    background-color: #ADDCB8;
+    color: black;
+}
+
+
+
+/* input.ng-invalid {
+    border-color: red;
+} */
+
+}
+

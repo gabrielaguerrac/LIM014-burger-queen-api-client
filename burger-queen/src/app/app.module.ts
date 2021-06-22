@@ -19,6 +19,8 @@ import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.componen
 import { ProductivityKitchenComponent } from './productivity-kitchen/productivity-kitchen.component';
 import { UserComponent } from './user/user.component';
 import { Page404Component } from './page404/page404.component';
+import { RoleSelectorComponent } from './role-selector/role-selector.component';
+
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { Page404Component } from './page404/page404.component';
     OrdersKitchenComponent,
     ProductivityKitchenComponent,
     UserComponent,
-    Page404Component
+    Page404Component,
+    RoleSelectorComponent
   ],
   imports: [
     BrowserModule,
