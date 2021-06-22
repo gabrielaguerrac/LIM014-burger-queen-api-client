@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
-
+import { AuthInterceptor } from '../app/interceptor/token.interceptor';
 import { UsersService } from './services/user/users.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,7 +45,10 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService, 
+    AuthInterceptor
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
