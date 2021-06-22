@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { UserModel } from 'src/app/models/user.model';
 /* import { isNullOrUndefined } from 'util'; */
 /* import { isNull } from '@angular/compiler/src/output/output_ast'; */
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/observable/throw';
+// import 'rxjs/operator/catch';
+// import 'rxjs/observable/throw';
 
 
 @Injectable({
@@ -23,13 +23,11 @@ export class AuthService {
    }
 
   loginUser (data: Auth): Observable<Token> {
-    return this.http.post<Token>(`${this.url}${this.endpoint}`, data);
-    }
-  }
-  // errorHandler(error: HttpErrorResponse){
-  //   return Observable.throw(error.message || "Server error");
-  // }
-  
+    return this.http.post<Token>(`${this.url}${this.endpoint}`, data)
+                    
+    } 
+
+}
   // loginUser(data: Auth): Observable<Token> {
   //   return this.http.post<Token>(`${this.url}${this.endpoint}`, data);
   //   // return this.http.post<Token>(`${this.domain}${this.endpoint}`, data);

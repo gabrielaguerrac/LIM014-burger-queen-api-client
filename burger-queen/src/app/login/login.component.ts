@@ -7,6 +7,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsersService } from '../services/user/users.service';
 import { UserModel } from '../models/user.model';
 import jwtDecode from 'jwt-decode';
+import { Observable } from 'rxjs';
+
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 
 @Component({
@@ -41,7 +45,10 @@ export class LoginComponent implements OnInit {
           localStorage.getItem('accessToken');
         this.redirect();
         // this.redirect();
-      }) 
+      })
+      
       form.reset();
   }
+
+ 
 }

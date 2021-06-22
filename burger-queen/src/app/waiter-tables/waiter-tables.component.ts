@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Table } from '../models/table.model';
 
 @Component({
   selector: 'app-waiter-tables',

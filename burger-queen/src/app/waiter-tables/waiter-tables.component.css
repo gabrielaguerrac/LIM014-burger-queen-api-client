@@ -1,13 +1,96 @@
-body, .generalInfo, #infoWaiter, main, #stateNav {
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: 0;
+    text-decoration: none;
+    font-family: 'Barlow';
+}
+
+body, .generalInfo, #infoWaiter, #stateNav, .tables {
     display: flex;
 }
 
+body{
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4.3rem;
+    position: fixed;
+    width: calc(100% - 4.3rem);
+    top:20px;
+    z-index: 100;
+}
+
+header, main{
+    margin-left: 4.3rem;
+}
+
+#infoWaiter h4{
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.tables{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    /* flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    top: 300px; */
+    
+}
+/* 
+#infoWaiter{
+    /* flex-direction: column;    */
+    /* position: relative;
+}
+
+#stateNav{
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+}
 
 .generalInfo {
-    justify-content: space-between;
+    position: relative;
+    top: 10px;
 }
 
-#infoWaiter{
-    justify-content: space-between;
-    align-content: flex-end;
+
+
+.table{
+    display: flex;
+    border: 3px;
+    border-radius: 0.5;
+    border-color: teal;
+    align-content: center;
+}  */
+
+#stateNav{
+    /* align-items: center; */
+    position: absolute;
+    top: 150px;
+    left: 300px;
 }
+
+#row1, #row2{
+    display: flex;
+    align-content: center;
+}
+
+/* .table{
+    display: flex;
+    border: 3px;
+    border-radius: 0.5;
+    border-color: solid teal;
+    align-content: center;
+    justify-content: center;
+}  */
+
+

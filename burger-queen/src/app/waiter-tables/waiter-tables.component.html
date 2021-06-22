@@ -1,20 +1,22 @@
-<p>waiter-tables works!</p>
+
 <body>
     <aside>
         <bar-side></bar-side>
     </aside>
-    <main>
-        <section class="generalInfo">
-            <h3>Dashboard</h3>
+        <header>
+            <section class="generalInfo">
+                <h3>Dashboard</h3>
+            </section>
             <section id="infoWaiter">
                 <h4>NombreMesero</h4>
-                <h4>Waiter</h4>
+                <h4>Waiter</h4>  <!--{{user.role}}-->
                 <label for="fileButton">
                     <i class="fas fa-camera"></i>
                 </label>
                 <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
             </section>
-        </section>
+        </header>
+        <main>
         <section id="stateNav">
             <label for="btnNoOrder">
                 <img src="../assets/icon/no-order-circle.png">
@@ -40,11 +42,22 @@
             </label>
             <input hidden type="button" accept="image/png, image/jpeg" value="Order delivered" id="btnDelivered"/>
         </section>
-        <section id="tables">
-            <article>
-                <label></label>
-
-            </article>
+        <section class="tables">
+            <div>
+                <div id="row1">
+                    <div class="table">
+                        <h4>Table1</h4> 
+                        <span>State</span> 
+                    </div>
+                    <div class="table">Table2</div>
+                    <div class="table">Table3</div>
+                </div>
+                <div id="row2">
+                    <div class="table">Table4</div>
+                    <div class="table">Table5</div>
+                    <div class="table">Table6</div>
+                </div>
+            </div>
         </section>
     </main>
 </body>
