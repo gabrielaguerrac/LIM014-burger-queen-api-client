@@ -8,6 +8,7 @@ import { UsersService } from '../services/user/users.service';
 import { UserModel } from '../models/user.model';
 import jwtDecode from 'jwt-decode';
 
+
 @Component({
     selector: 'login',
     templateUrl: './login.component.html',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     ){ }
   // método que permite iniciar el componente luego del constructor
   ngOnInit(){}
-  redirigir(){
+  redirect(){
     this.router.navigate(['/user']);
 }
 
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('accessToken', response.token);
           localStorage.getItem('accessToken');
         this.redirigir();
+        // this.redirect();
       }) 
       form.reset();
   }

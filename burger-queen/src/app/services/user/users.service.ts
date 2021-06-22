@@ -16,22 +16,25 @@ import { catchError, retry } from 'rxjs/operators';
 import { UserModel } from '../../models/user.model';
 import { Token } from '../../models/auth';
 
+//import { UserModel } from 'src/app/models/user.model';
+//import { Token } from 'src/app/models/auth';
+
+
 @Injectable({
     providedIn: "root"
 })
 
 export class UsersService {
+
     // private domain: string;
     private endpoint: string;
     url = "http://localhost:4201"
 
-    
-    constructor(private http: HttpClient) {
+     constructor(private http: HttpClient) {
         // this.domain = environment.domain;
         this.endpoint = '/users';
-    }
-
-    getUserId(uid: string, token: Token){
+  
+     getUserId(uid: string, token: Token){
         return this.http.post<UserModel>(`${this.url}${this.endpoint}/${uid}`, {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',

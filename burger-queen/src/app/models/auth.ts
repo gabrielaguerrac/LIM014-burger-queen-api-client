@@ -7,4 +7,8 @@ export interface Token {
     token: string,
 }
 
+// export interface Error {
+//     error: string,
+// }
+
 

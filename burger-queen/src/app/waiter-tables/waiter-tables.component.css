@@ -1,0 +1,13 @@
+body, .generalInfo, #infoWaiter, main, #stateNav {
+    display: flex;
+}
+
+
+.generalInfo {
+    justify-content: space-between;
+}
+
+#infoWaiter{
+    justify-content: space-between;
+    align-content: flex-end;
+}
