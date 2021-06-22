@@ -1,0 +1,28 @@
+.container-icon {
+    background-color: #ADDCB8;
+    display: flex;
+    flex-direction: column;
+    width: 4.3rem;
+    height: 45rem;
+    justify-content: space-between;
+    font-size: 3rem;
+    align-items: center;
+}
+.container-icon img{
+    width: 95%;
+    padding-top: 0.5rem;
+}
+.icon {
+    color: #123520;
+    transition: .3s ease all;
+}
+.icon:hover{
+    background-color: white;
+    color: #ADDCB8;
+    padding: 0.8rem 1rem;
+}
+/* cuando eliges un ícono de la barra de navegación, se debe cambiar el color*/
+.icon:active {
+    color: #ADDCB8;
+}
+
