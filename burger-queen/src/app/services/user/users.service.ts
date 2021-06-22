@@ -23,18 +23,41 @@ export class UsersService {
 
     constructor(private http: HttpClient) {
         this.endpoint = '/users';
-    }
+      }
 
     getUserId(uid: string, token: Token){
         return this.http.post<UserModel>(`${this.url}${this.endpoint}/${uid}`, {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
               Authorization: `Bearer ${token}`
-            })}
+            })
+        }
       );
     }
-
-    // public post(url: string, body){
-    //     return this.httpclient.post(url, body);
-    // }
-}
+    // setUser (user: UserModel): void{ // xq no devuelve algo se escribe VOID
+  //   let user_string = JSON.stringify(user);
+  //   localStorage.setItem('currentUser', user_string);
+  // }
+  // setToken (token: any): void {
+  //   localStorage.setItem('accessToken', token);
+  // }
+  // getToken (){
+  //   return localStorage.getItem('accessToken');
+  // }
+  // getCurrentUser (){
+  //   let user_string = localStorage.getItem('currentUser');
+  //   if (!isNullOrUndefined(user_string)){
+  //     let user = JSON.parse(user_string);
+  //     return user;
+  //   } else {
+  //     return null;
+  //   }
+  // }
+  // logoutUser(){
+  //   let accessToken = localStorage.getItem('accessToken');
+  //   const url_api = `${this.url}${this.endpoint}+/logoutUser?accessToken=${accessToken}`;
+  //   localStorage.removeItem('accessToken')
+  //   localStorage.removeItem('currentUser')
+  //   return this.http.post
+  // }
+  }

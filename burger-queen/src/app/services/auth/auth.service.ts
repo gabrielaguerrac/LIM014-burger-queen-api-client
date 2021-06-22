@@ -23,11 +23,21 @@ export class AuthService {
    }
 
   loginUser (data: Auth): Observable<Token> {
+<<<<<<< HEAD
     return this.http.post<Token>(`${this.url}${this.endpoint}`, data)
                     
     } 
 
 }
+=======
+    return this.http.post<Token>(`${this.url}${this.endpoint}`, data);
+    }
+}
+  // errorHandler(error: HttpErrorResponse){
+  //   return Observable.throw(error.message || "Server error");
+  // }
+  
+>>>>>>> 4bfb45ab61504104572ab5e7573d9c5b4a175ba0
   // loginUser(data: Auth): Observable<Token> {
   //   return this.http.post<Token>(`${this.url}${this.endpoint}`, data);
   //   // return this.http.post<Token>(`${this.domain}${this.endpoint}`, data);

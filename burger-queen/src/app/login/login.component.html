@@ -2,7 +2,7 @@
         <section>
             <img src="../assets/logo-fondo-green.jpg" class="" alt="logo-burger" />
 
-            <form #formLogin="ngForm" (submit)="sendCredentials(formLogin)">
+            <form #formLogin="ngForm" (submit)="login(formLogin)">
                 <h2> MANAGER/ EMPLOYEES </h2>
                 
                     <input type="email"  name="email" [(ngModel)]="email" required placeholder="email" />
