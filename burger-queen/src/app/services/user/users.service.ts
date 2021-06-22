@@ -10,15 +10,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 import { LoginComponent } from "../../login/login.component";
+import { UserModel } from 'src/app/models/user.model';
+import { Token } from 'src/app/models/auth';
 
 @Injectable({
     providedIn: "root"
 })
 
 export class UsersService {
-    constructor(private httpclient: HttpClient) {
-        console.log('constructor de loginService');
-        
+    private endpoint: string;
+    url = "http://localhost:4201";
+
+    constructor(private http: HttpClient) {
+        this.endpoint = '/users';
+    }
+
+    getUserId(uid: string, token: Token){
+        return this.http.get<UserModel>(`${this.url}${this.endpoint}/${uid}`, {
+            headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              Authorization: `Bearer ${token}`
+            })}
+      );
     }
 
     // public post(url: string, body){

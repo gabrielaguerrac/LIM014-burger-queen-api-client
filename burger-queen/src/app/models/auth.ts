@@ -4,7 +4,12 @@ export interface Auth {
 }
 
 export interface Token {
-    token: string
+    token: string,
+    
 }
+
+// export interface Error {
+//     error: string,
+// }
 
 

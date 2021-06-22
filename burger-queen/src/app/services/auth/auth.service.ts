@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Auth, Token } from '../../models/auth';
 import { Observable } from 'rxjs';
-
+//import 'rxjs/add/operator/catch';
+//import 'rxjs/add/observable/throw';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,12 @@ export class AuthService {
   constructor(private http: HttpClient) {
    }
   
-  postCredential(data: Auth): Observable<Token> {
+  errorHandler(error: HttpErrorResponse){
+    return Observable.throw(error.message || "Server error");
+  }
+  
+  loginUser(data: Auth): Observable<Token> {
     return this.http.post<Token>(this.url, data);
+                   // .catch(this.errorHandler);
   }
 }
