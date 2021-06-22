@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           console.log(token);
           localStorage.setItem('accessToken', response.token);
           localStorage.getItem('accessToken');
-        this.redirigir();
+        this.redirect();
         // this.redirect();
       }) 
       form.reset();
