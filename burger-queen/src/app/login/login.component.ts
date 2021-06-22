@@ -6,6 +6,7 @@ import { Token } from '../models/auth';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UsersService } from '../services/user/users.service';
 import { UserModel } from '../models/user.model';
+import jwtDecode from 'jwt-decode';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(
       private authService: AuthService,
       private route: ActivatedRoute,
-      private router: Router,   
+      private router: Router,
       private userService: UsersService,
     ){ }
   // método que permite iniciar el componente luego del constructor
@@ -31,26 +32,16 @@ export class LoginComponent implements OnInit {
 }
 
   public sendCredentials(form: any){
-    // this.authService.loginUser({email: this.email, password: this.password})  
-    //   .subscribe((response: Token) => {
-    //       console.log(this.email);
-    //       this.userService.getUserId(this.email, response)
-    //       .subscribe((res: UserModel) => {
-    //         console.log(res);
-            
-    //       })
-    //     this.redirect();
-    //   }) 
-    //   form.reset();
-      this.authService.loginUser({email: this.email, password: this.password})
-      .subscribe((response: Token) => {
-          console.log(this.email);
+      this.authService.loginUser({email: this.email, password: this.password})  
+      .subscribe((response) => {
           console.log(response);
-         
-          this.redirect();
-         })
+          const token = jwtDecode(response.token)
+          console.log(token);
+          localStorage.setItem('accessToken', response.token);
+          localStorage.getItem('accessToken');
+        this.redirigir();
+        // this.redirect();
+      }) 
       form.reset();
   }
-
-  
 }

@@ -18,7 +18,9 @@ import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
 import { ProductivityKitchenComponent } from './productivity-kitchen/productivity-kitchen.component';
 import { UserComponent } from './user/user.component';
+import { Page404Component } from './page404/page404.component';
 import { RoleSelectorComponent } from './role-selector/role-selector.component';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
     OrdersKitchenComponent,
     ProductivityKitchenComponent,
     UserComponent,
+    Page404Component,
     RoleSelectorComponent
   ],
   imports: [

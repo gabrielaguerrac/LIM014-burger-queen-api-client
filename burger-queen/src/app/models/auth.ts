@@ -5,7 +5,6 @@ export interface Auth {
 
 export interface Token {
     token: string,
-    
 }
 
 // export interface Error {
