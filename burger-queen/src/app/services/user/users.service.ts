@@ -33,13 +33,14 @@ export class UsersService {
      constructor(private http: HttpClient) {
         // this.domain = environment.domain;
         this.endpoint = '/users';
-  
+      }
      getUserId(uid: string, token: Token){
         return this.http.post<UserModel>(`${this.url}${this.endpoint}/${uid}`, {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
               Authorization: `Bearer ${token}`
-            })}
+            })
+        }
       );
     }
     // setUser (user: UserModel): void{ // xq no devuelve algo se escribe VOID
@@ -68,4 +69,4 @@ export class UsersService {
   //   localStorage.removeItem('currentUser')
   //   return this.http.post
   // }
-}
+  }
