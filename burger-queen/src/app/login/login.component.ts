@@ -4,6 +4,9 @@ import { AuthService } from '../services/auth/auth.service';
 import { Form } from '@angular/forms';
 import { Token } from '../models/auth';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { UsersService } from '../services/user/users.service';
+import { UserModel } from '../models/user.model';
+import jwtDecode from 'jwt-decode';
 
 @Component({
     selector: 'login',
@@ -18,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
       private authService: AuthService,
       private route: ActivatedRoute,
-      private router: Router 
+      private router: Router,
+      private userService: UsersService,
     ){ }
   // método que permite iniciar el componente luego del constructor
   ngOnInit(){}
@@ -27,16 +31,15 @@ export class LoginComponent implements OnInit {
 }
 
   public sendCredentials(form: any){
-      this.authService.postCredential({email: this.email, password: this.password})  
-      .subscribe((response: Token) => {
+      this.authService.loginUser({email: this.email, password: this.password})  
+      .subscribe((response) => {
           console.log(response);
-          // get email
-          //add el cambio de pantalla
-        // si el usuario es admin: true, entonces que se cumplea el redirigir a user
+          const token = jwtDecode(response.token)
+          console.log(token);
+          localStorage.setItem('accessToken', response.token);
+          localStorage.getItem('accessToken');
         this.redirigir();
       }) 
       form.reset();
   }
-
-  
 }
