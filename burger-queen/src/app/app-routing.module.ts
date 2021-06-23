@@ -11,6 +11,7 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
 import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
 // import { OrdersComponent } from './orders/orders.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
+
 // Array de rutas
 const routes: Routes = [
   {path: '', component: LoginComponent}, //por default
