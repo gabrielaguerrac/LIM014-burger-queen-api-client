@@ -3,12 +3,5 @@ export interface Auth {
     password: string
 }
 
-export interface Token {
-    token: string,
-}
-
-// export interface Error {
-//     error: string,
-// }
 
 
