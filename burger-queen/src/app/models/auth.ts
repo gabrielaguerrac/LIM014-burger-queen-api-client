@@ -3,5 +3,8 @@ export interface Auth {
     password: string
 }
 
+export interface Token {
+    token: string,
+}
 
 

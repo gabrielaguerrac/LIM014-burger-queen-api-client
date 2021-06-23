@@ -1,12 +1,8 @@
 import { Component , OnInit } from '@angular/core';
-
+import { FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth/auth.service';
-import { Token } from '../models/auth';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { UsersService } from '../services/user/users.service';
-import { UserModel } from '../models/user.model';
 import jwtDecode from 'jwt-decode';
-import { AuthInterceptor } from '../interceptor/token.interceptor';
 import { HttpErrorResponse } from '@angular/common/http';
 import { catchError} from 'rxjs/operators';
 import { error } from '@angular/compiler/src/util';
@@ -26,11 +22,9 @@ export class LoginComponent implements OnInit {
   constructor( // método que se ejecuta cuando carga un objeto
       private authService: AuthService,
       private router: Router,
-    /*   private userService: UsersService,
-      private interceptor: AuthInterceptor, */
   ){ }
-  // método que permite iniciar el componente luego del constructor
-  ngOnInit(){}
+  
+  ngOnInit(){} // método que permite iniciar el componente luego del constructor
 
   login(form: any){
       this.authService.loginUser({email: this.email, password: this.password})
