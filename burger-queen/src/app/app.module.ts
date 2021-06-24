@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/interceptor/token.interceptor';
 import { UsersService } from './services/user/users.service';
-// import { MatTableModule } from '@angular/material/table';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,8 @@ import { ProductivityKitchenComponent } from './productivity-kitchen/productivit
 import { UserComponent } from './user/user.component';
 import { Page404Component } from './page404/page404.component';
 import { RoleSelectorComponent } from './role-selector/role-selector.component';
+import { TableClientComponent } from './table-client/table-client.component';
+
 
 
 
@@ -38,13 +40,15 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
     ProductivityKitchenComponent,
     UserComponent,
     Page404Component,
-    RoleSelectorComponent
+    RoleSelectorComponent,
+    TableClientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     UsersService, 
