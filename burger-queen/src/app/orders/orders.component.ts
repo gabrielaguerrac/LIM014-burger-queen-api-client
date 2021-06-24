@@ -12,7 +12,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deliveringOrder(){
+  deliverOrder(){
     console.log('click en deliver button');
     //se muestra componente de validacion
     //

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Token } from 'src/app/models/auth';
 import { OrdersComponent } from 'src/app/orders/orders.component';
-import { Auth } from 'src/app/models/auth';
 import { Observable } from 'rxjs';
 import { Orders } from 'src/app/models/orders';
 

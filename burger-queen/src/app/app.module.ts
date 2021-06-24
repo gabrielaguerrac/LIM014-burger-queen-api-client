@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/interceptor/token.interceptor';
 import { UsersService } from './services/user/users.service';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -52,7 +52,7 @@ import { TableClientComponent } from './table-client/table-client.component';
   ],
   providers: [
     UsersService, 
-    AuthInterceptor
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
