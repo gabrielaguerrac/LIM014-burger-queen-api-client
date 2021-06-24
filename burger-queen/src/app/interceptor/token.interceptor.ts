@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         console.log('INTERCEPTA YUJU, pero no lo toma de local storage');
-        const newToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MGM5MmMxM2NjNTMzNTBmMzkwNDk5ZGQiLCJlbWFpbCI6ImFkbWluQGxvY2FsaG9zdCIsInJvbGVzIjp7ImFkbWluIjp0cnVlfSwiaWF0IjoxNjIzNzk2ODg0LCJleHAiOjE2MjM4MDA0ODR9.8tDX3i4afFU7TAFfvg11ngvIJOYgZZ2oQDpLu0xYrpg";
+        const newToken = localStorage.getItem('accessToken')
         console.log(newToken);    
         if (newToken) {
             const headers = new HttpHeaders().append('Authorization', `Bearer ${newToken}`)
