@@ -36,9 +36,8 @@ export class LoginComponent implements OnInit {
       )  
       .subscribe((response) => {                
           const token: any = jwtDecode(response.token);
-          console.log(token);
-          window.localStorage.setItem('accessToken', response.token);
-          localStorage.getItem('accessToken');
+          localStorage.setItem('accessToken', response.token);
+          localStorage.getItem('accessToken');         
         if (token.roles.admin === true) {
           this.router.navigate(['/user']);
         } else {

@@ -7,7 +7,7 @@ import { Page404Component } from './page404/page404.component';
 // import { BarSideComponent } from './bar-side/bar-side.component';
 import { UserComponent } from './user/user.component';
 import { RoleSelectorComponent } from './role-selector/role-selector.component';
-// import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './products/products.component';
 import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
 // import { OrdersComponent } from './orders/orders.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'user', component: UserComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'roleselector', component: RoleSelectorComponent},
-  // {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductsComponent},
   {path: 'waitertables', component: WaiterTablesComponent},
   // {path: 'orders', component: OrdersComponent},
   {path: 'orderskitchen', component: OrdersKitchenComponent},

@@ -3,12 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Auth, Token } from '../../models/auth';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { UserModel } from 'src/app/models/user.model';
-/* import { isNullOrUndefined } from 'util'; */
-/* import { isNull } from '@angular/compiler/src/output/output_ast'; */
-//import 'rxjs/add/operator/catch';
-//import 'rxjs/add/observable/throw';
-
 
 @Injectable({
   providedIn: 'root'
