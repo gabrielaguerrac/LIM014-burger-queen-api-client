@@ -1,7 +1,7 @@
 <body>
   <section *ngFor="let product of productos">
   <h1> hola carambolas </h1>
-  {{ productos }}
-    <!-- <img [src]="productos.image"> -->
+  {{ product.name }}
+    <img [src]="product.image">
   </section>
 </body>

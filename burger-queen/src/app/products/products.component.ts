@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
       _id: '1',
       name: 'Coffee',
       price: 3.10,
-      // image: '../assets/food/coffee.png',
+      image: '../assets/food/coffee.png',
       type: 'Menú'
       // dateEntry: 
     },
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
       _id: '2',
       name: 'Milk',
       price: 3.10,
-      // image: '../assets/food/coffee.png',
+      image: '../assets/food/coffee-milk.png',
       type: 'Menú'
       // dateEntry: 
     },
@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
       _id: '3',
       name: 'Tea',
       price: 3.10,
-      // image: '../assets/food/coffee.png',
+      image: '../assets/food/tea-buble.png',
       type: 'Menú'
       // dateEntry: 
     }

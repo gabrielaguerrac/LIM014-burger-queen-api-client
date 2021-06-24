@@ -12,8 +12,8 @@ export class ProductsService {
     // this.endpoint = '/products';
   }
 
-  // getAllProducts (){
-  //   return this.http.get<Array<IProductsModel>>(`${this.url}${this.endpoint}`);
+  // getAllProducts (): Observable<ProductDetailModel>{
+  //   return this.http.get<Array<ProductDetailModel>>(`${this.url}${this.endpoint}`);
   // }
   
 }

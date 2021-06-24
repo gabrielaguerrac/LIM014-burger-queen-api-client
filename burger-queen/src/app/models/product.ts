@@ -6,7 +6,7 @@ export interface ProductDetailModel {
     _id?: string;
 	name?: string;
 	price?: number;
-	// image?: URL;
+	image?: string;
 	type: string;
 	// dateEntry: Date;
 }
