@@ -11,33 +11,8 @@ import { ProductsService } from '../services/product/products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  /* @Input() productos: ProductDetailModel; */
-  // productos: ProductDetailModel[] = [
-  //   {
-  //     _id: '1',
-  //     name: 'Coffee',
-  //     price: 3.10,
-  //     image: '../assets/food/coffee.png',
-  //     type: 'Menú'
-  //     // dateEntry: 
-  //   },
-  //   {
-  //     _id: '2',
-  //     name: 'Milk',
-  //     price: 3.10,
-  //     image: '../assets/food/coffee-milk.png',
-  //     type: 'Menú'
-  //     // dateEntry: 
-  //   },
-  //   {
-  //     _id: '3',
-  //     name: 'Tea',
-  //     price: 3.10,
-  //     image: '../assets/food/tea-buble.png',
-  //     type: 'Menú'
-  //     // dateEntry: 
-  //   }
-  // ]
+  /* @Input() products: ProductDetailModel; */ //lo activo cuando este componente lo lleve a otro
+  
 
   items: Array<ProductDetailModel>
   products: Array<ProductDetailModel>
@@ -55,6 +30,11 @@ export class ProductsComponent implements OnInit {
         this.products.push(el)
       })
     }) 
+  }
+
+  addItemToCar(){
+    console.log('agrega al carrito');
+    
   }
 }
 
