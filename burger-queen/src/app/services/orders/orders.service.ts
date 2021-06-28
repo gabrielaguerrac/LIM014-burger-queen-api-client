@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 // import { Token } from 'src/app/models/auth';
 import { OrdersComponent } from 'src/app/orders/orders.component';
 import { Observable } from 'rxjs';
-import { Orders } from 'src/app/models/orders';
+import { IAllOrderModel, OrdersModel } from 'src/app/models/orders.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,20 @@ export class OrdersService {
     this.endpoint = '/orders';
    }
 
-  getAllOrders (): Observable<Orders> {
-    return this.http.get<Orders>(`${this.url}${this.endpoint}`);
-    }
+  getAllOrders (): Observable<IAllOrderModel> {
+    return this.http.get<IAllOrderModel>(`${this.url}${this.endpoint}`);
+  }
+  getOrderById(uid: any) {
+    return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
+  }
+  deleteOrder(uid: any,) {
+    return this.http.delete<OrdersModel>(`${this.url}${this.endpoint}/${uid}`)
+  }
+  updateOrder(uid: any, body: any) {
+    return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
+  }
+  createOrder(body: any) {
+    return this.http.post<OrdersModel>(`${this.url}${this.endpoint}`, body,)
+  }
 }
 
