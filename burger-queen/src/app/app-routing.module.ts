@@ -10,7 +10,7 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
 import { ProductsComponent } from './products/products.component';
 import { OrdersCarComponent } from './orders-car/orders-car.component'
 import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
-//import { OrdersComponent } from './orders/orders.component';
+import { OrdersComponent } from './orders/orders.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
 
 // Array de rutas
@@ -23,7 +23,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'orderscar', component: OrdersCarComponent},
   {path: 'waitertables', component: WaiterTablesComponent},
-  // {path: 'orders', component: OrdersComponent},
+  {path: 'orders', component: OrdersComponent},
   {path: 'orderskitchen', component: OrdersKitchenComponent},
   {path: '**', component: Page404Component} //mientras login hasta tener un componente de error
 

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Token } from 'src/app/models/auth';
-import { OrdersComponent } from 'src/app/orders/orders.component';
 import { Observable } from 'rxjs';
-import { IAllOrderModel, OrdersModel } from 'src/app/models/orders.model';
+import { IOrdersModel,OrdersModel, OrderProductModel, OrderDetailProductModel } from '../../models/orders.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,20 +17,20 @@ export class OrdersService {
     this.endpoint = '/orders';
    }
 
-  getAllOrders (): Observable<IAllOrderModel> {
-    return this.http.get<IAllOrderModel>(`${this.url}${this.endpoint}`);
+  getAllOrders (): Observable<OrdersModel[]> {
+    return this.http.get<Array<OrdersModel>>(`${this.url}${this.endpoint}`);
   }
-  getOrderById(uid: any) {
-    return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
-  }
-  deleteOrder(uid: any,) {
+  deleteOrder(uid: string):Observable<OrdersModel> {
     return this.http.delete<OrdersModel>(`${this.url}${this.endpoint}/${uid}`)
   }
-  updateOrder(uid: any, body: any) {
-    return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
-  }
-  createOrder(body: any) {
-    return this.http.post<OrdersModel>(`${this.url}${this.endpoint}`, body,)
-  }
+  // getOrderById(uid: any) {
+  //   return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
+  // }
+  // updateOrder(uid: any, body: any) {
+  //   return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
+  // }
+  // createOrder(body: any) {
+  //   return this.http.post<OrdersModel>(`${this.url}${this.endpoint}`, body,)
+  // }
 }
 
