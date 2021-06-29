@@ -1,5 +1,7 @@
 section{
     width: 4.3rem;
+    /* height: 100vh; */
+    position: relative;
 }
 .container-icon {
     background-color: #ADDCB8;
