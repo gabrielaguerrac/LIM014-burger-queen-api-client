@@ -5,19 +5,38 @@
   <!-- <section *ngFor="let types of productsTypes">
     <button >{{types}}</button>
   </section> -->
-  <bar-side></bar-side>
-  
-  <button (click)="filterType('burger')">Burger</button>
-  <button (click)="filterType('drink')">Drink</button>
-  <button (click)="filterType('side dishes')">Side Dishes</button>
-  
-  <section class="container-product-big">
-    <section class="container-product-card" *ngFor="let product of items">
-        <img [src]="product.image">
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.price | currency:'S/.' }}</p>
-        <button (click)="addItemToCar(product)">Add Item</button>
-    </section>
-  </section>
+  <section class="dashboard-waiter">
 
-  <orders-car></orders-car>
+    <bar-side></bar-side>
+    
+    
+    <section>  
+      
+      <section>
+        <h2>Order 001</h2>
+        <h2>Rodrigo</h2>
+        <h4>Tuesday, 2 Feb 2021</h4>
+      </section>
+      <!-- Botones de la cabecera -->
+      <section class="buttons-header">
+        <section class="buttons-types">
+          <button (click)="filterType('burger')">Burger</button>
+          <button (click)="filterType('drink')">Drink</button>
+          <button (click)="filterType('side dishes')">Side Dishes</button>
+        </section>
+        
+        <button id="btn-new-order">New order</button>
+      </section>
+
+      <section class="container-product">
+        <section class="container-product-card" *ngFor="let product of items">
+            <img [src]="product.image">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.price | currency:'S/.' }}</p>
+            <button (click)="addItemToCar(product)">Add Item</button>
+        </section>
+      </section>
+    </section>
+
+    <orders-car></orders-car>
+  </section>

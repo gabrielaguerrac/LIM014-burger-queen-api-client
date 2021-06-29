@@ -1,21 +1,25 @@
-.container-product-big{
+.dashboard-waiter{
+    display: flex;
+    justify-content: space-between;
+}
+.container-product{
     display: flex;
     flex-wrap: wrap;
 }
 .container-product-card {
-    margin-left: 4.3rem;
-    margin: 2rem;
-    width: 15rem;
+    margin-left: 3rem;
+    margin: 0.5rem;
+    width: 11rem;
     border: 0.2rem solid #123520;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    color: white;
-    background-color: #123520;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
     justify-content: space-around;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #123520;
 }
 img {
     max-width: 40%;
@@ -26,13 +30,22 @@ img {
 h3, p {
     margin: 0.5rem;
 }
+
+/* ---- Botones de la cabecera ---- */
+.buttons-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ---- Botones de los tipos de productos ---- */
 button {
     margin: 0.8rem;
     padding: 0.8rem;
     border:white;
+    background-color: white;
     border-radius: 8px;
     align-self: center;
-    box-shadow: 0 6px #999;
+    box-shadow: 0 6px rgb(199, 199, 199);
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
@@ -42,3 +55,23 @@ button:active{
     box-shadow: 0 4px #666;
     transform: translateY(4px);
 }
+
+#btn-new-order{
+    margin: 0.8rem;
+    padding: 0.8rem;
+    color: white;
+    border:white;
+    background-color: #123520;
+    border-radius: 8px;
+    align-self: center;
+    box-shadow: 0 6px rgb(199, 199, 199);
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+#btn-new-order:active{
+    color: white;
+    background-color: #ADDCB8;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+}
+
