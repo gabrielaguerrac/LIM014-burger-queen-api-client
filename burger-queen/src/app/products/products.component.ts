@@ -13,12 +13,7 @@ import { OrderProductModel} from '../models/orders.model'
 export class ProductsComponent implements OnInit {
 
   /* @Input() products: ProductDetailModel; */ //lo activo cuando este componente lo lleve a otro
-  // @Input() dishCategories = new Set()
-  // @Output() getProduct: EventEmitter<ProductDetailModel> = new EventEmitter()
-  // @Output() filterType: EventEmitter<ProductDetailModel> = new EventEmitter()
   @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
-
-  //línea 15-17 y 39-44
 
   items: Array<ProductDetailModel>
   productItem: Array<OrderProductModel>
@@ -40,34 +35,16 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getAllProducts()
     .subscribe((response: ProductDetailModel[]) => { 
-      // console.log(response, 'dentro de subscribe');
-      //.subscribe((response: any) => { 
-      
-      // this.items = response.products
-      
-      //this.filter(response)
-      
       this.allProducts(response)
       this.filterType('burger')
-      // response.forEach((el: ProductDetailModel)=>{
-      //   this.products.push(el)
-      // })
     })
-    // this.getTotal() 
   }
   
-allProducts (elem:Array<ProductDetailModel>){
-  elem.forEach((el: ProductDetailModel)=>{
-    this.products.push(el)
-  })
-}
-
-  // Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
-  // filter(elemento: Array<ProductDetailModel>){
-  //   elemento.forEach((el: ProductDetailModel)=>{
-  //     this.productsTypes.add(el.type)
-  //   })
-  // }
+  allProducts (elem:Array<ProductDetailModel>){
+    elem.forEach((el: ProductDetailModel)=>{
+      this.products.push(el)
+    })
+  }
 
   filterType(category: any) {
     this.items = this.products.filter((elem: ProductDetailModel) => {
@@ -79,6 +56,12 @@ allProducts (elem:Array<ProductDetailModel>){
     this.addToCar.emit(product) // luego se agrega el objeto
     console.log(product);
   }
+  // Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
+  // filter(elemento: Array<ProductDetailModel>){
+  //   elemento.forEach((el: ProductDetailModel)=>{
+  //     this.productsTypes.add(el.type)
+  //   })
+  // }
 }
 
 
