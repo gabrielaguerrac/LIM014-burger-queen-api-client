@@ -39,11 +39,11 @@ export class ProductsComponent implements OnInit {
   //   }
   // ]
 
-  items: Array<ProductDetailModel>
+ 
   products: Array<ProductDetailModel>
 
   constructor(private productsService: ProductsService,) { 
-    this.items = []
+  
     this.products = []
   }
 

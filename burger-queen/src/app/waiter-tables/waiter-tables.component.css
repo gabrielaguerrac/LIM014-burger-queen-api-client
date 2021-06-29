@@ -6,6 +6,7 @@
     text-decoration: none;
     font-family: 'Barlow';
 }
+@media screen and (min-width: 600px) and (max-width: 1400px){
 
 /* body, .generalInfo, #infoWaiter, #stateNav, .tables {
     display: flex;
@@ -15,9 +16,20 @@
     flex-direction: column;
 } */
 
+aside{
+    height: 100%;
+    width: 4.3rem;
+}
+
 main{
-    position: relative;
+    /* position: relative; */
     width: calc(100% - 4.3rem);
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:4.3rem ;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
     /* display: flex;
     flex-direction: column; */
     /* margin-left: 240px; */
@@ -27,12 +39,11 @@ header {
     /* display: flex;
     justify-content: space-between;
     margin-left: 4.3rem; */
-    position: fixed;
-    /* width: calc(100% - 4.3rem); */
-    /* width: auto; */
+    position:absolute;
+    top: 0;
+    background-color: honeydew;
     width: calc(100% - 4.3rem);
     margin-left:4.3rem ;
-    top:0px;
     z-index: 100;
     height: 60px;
     padding: 0rem, 1rem;
@@ -41,9 +52,9 @@ header {
     justify-content: space-between;
 }
 
-/* header, main{
-    margin-left: 4.3rem;
-} */
+.generalInfo h3{
+    margin-left:4.3rem ;
+}
 
 #infoWaiter{
     display: flex;
@@ -80,6 +91,10 @@ header {
     /* display: flex; */
     margin-top: 60px;
     z-index: 100;
+}
+
+app-orders{
+    position: relative;
 }
 
 .tables{
@@ -149,17 +164,13 @@ header {
     align-content: center;
 }  */
 
-#stateNav{
+/* #stateNav{
     /* align-items: center; */
-    position: absolute;
+    /* position: absolute;
     top: 150px;
     left: 300px;
-}
+} */ 
 
-#row1, #row2{
-    display: flex;
-    align-content: center;
-}
 
 /* .table{
     display: flex;
@@ -170,4 +181,4 @@ header {
     justify-content: center;
 }  */
 
-
+}

@@ -9,18 +9,23 @@
 .orders{
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: calc(100%-60px);
+    margin-top: 65px;
+    position: relative;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
 }
 
 .order{
+    display: flex;
     border-radius: 20px;
-    box-shadow: 0 1rem 1rem rgba(0,0,0,0.2);
     display: flex;
     flex-direction: column;
     margin: 1.5rem;
     overflow: hidden;
     width: 15rem;
     border: 2px solid #123520;
+   
 }
 
 .order-body{
@@ -53,8 +58,46 @@
     align-self: center;
     justify-content: center;
     padding: 0.8rem;
-    border-radius: 15px;
+    border-radius: 8px;
     background-color: #123520;
     color: #ffff;
     font-size: 18px;
+    border: white;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+}
+
+.order-footer input[type=button]:active{
+    color: #666;
+    background-color: #666;
+    box-shadow: 0 4px #123520;
+    transform: translateY(4px);
+}
+
+.order-delivery-verification{
+    display: flex;
+    justify-content: center;
+}
+
+.order-delivery-verification input{
+    padding: 10px;
+    margin: 10px;
+    width: 6.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px #999;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    border: white;
+}
+
+.order-delivery-verification input[type=button]:active{
+    color: yellow;
+    background-color: black;
+    box-shadow: 0 4px #667;
+    transform: translateY(4px);
+
+}
+
+#btnyes{
+    background-color: #ADDCB8;
 }

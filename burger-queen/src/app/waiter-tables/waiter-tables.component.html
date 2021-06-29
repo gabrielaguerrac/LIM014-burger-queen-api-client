@@ -1,25 +1,26 @@
 
-<body>
+
     <aside>
         <bar-side></bar-side>
-    </aside>
-    <main>
+    </aside> 
+    <!-- <main> -->
         <header>
             <section class="generalInfo">
                 <h3>Dashboard</h3>
             </section>
             <section id="infoWaiter">
                 <h4>NombreMesero</h4>
-                <h4>Waiter</h4>  <!--{{user.role}}-->
+                <h4>Waiter</h4> 
                 <label for="fileButton">
                     <i class="fas fa-camera"></i>
                 </label>
                 <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
             </section>
-        </header>
-        
-            <orders></orders>
-           
+        </header>  
+        <main>
+            <!-- <orders [data]="orders" (borrar)="borrarOrder($event)" *ngFor="let order of orders"></orders> -->
+            <app-orders [data]="order" (deliver)="deliverOrder($event)" *ngFor="let order of orders"></app-orders>
+        </main>
             <!-- <section id="stateNav">
                 <label for="btnNoOrder">
                     <img src="../assets/icon/no-order-circle.png">
@@ -124,5 +125,5 @@
                 </div>
             </section> -->
        
-    </main>
-</body>
+    <!-- </main>
+ -->
