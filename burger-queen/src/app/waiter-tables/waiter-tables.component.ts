@@ -17,7 +17,7 @@ export class WaiterTablesComponent implements OnInit {
   // @Input() orders: Array<OrdersModel>;
 
   // orders = []; //como usuarios =[]
-
+  isWaiter:boolean= true;
   orders: Array<OrdersModel> //como usuarios =[]
   
   constructor(private orderService: OrdersService) {

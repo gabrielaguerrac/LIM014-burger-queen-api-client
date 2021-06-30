@@ -22,6 +22,7 @@ import { UserComponent } from './user/user.component';
 import { Page404Component } from './page404/page404.component';
 import { RoleSelectorComponent } from './role-selector/role-selector.component';
 import { TableClientComponent } from './table-client/table-client.component';
+import { InventoryAdminComponent } from './inventory-admin/inventory-admin.component';
 
 
 
@@ -41,7 +42,8 @@ import { TableClientComponent } from './table-client/table-client.component';
     UserComponent,
     Page404Component,
     RoleSelectorComponent,
-    TableClientComponent
+    TableClientComponent,
+    InventoryAdminComponent
   ],
   imports: [
     BrowserModule,
