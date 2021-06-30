@@ -16,7 +16,7 @@ export class OrdersCarComponent implements OnInit {
   // products: Array<ProductDetailModel>
   
 
-  constructor(private productsService: ProductsService,) {
+  constructor() {
     // this.items = []
     // this.products = []
     this.productItem = []
@@ -24,6 +24,7 @@ export class OrdersCarComponent implements OnInit {
 
   ngOnInit(): void {
     console.warn('Pedido', this.productItem);
+    // this.addItemToCar(this.productItem)
   }
 
   // allProducts (elem:Array<ProductDetailModel>){

@@ -38,7 +38,6 @@ export class ProductsComponent implements OnInit {
       this.items = response.products
       this.allProducts(response)
       this.filterType('burger')
-      // this.addItemToCar(response)
     })
     this.getTotal()
   }
@@ -48,56 +47,33 @@ export class ProductsComponent implements OnInit {
       this.products.push(el)
     })
   }
-
   filterType(category: any) {
     this.items = this.products.filter((elem: ProductDetailModel) => {
       return elem.type === category;
     })
   }
-  
-  addItemToCar(product: any){ //este es un evento que voy a enviar al compon. orders-car = OUTPUT
-    // this.productsService.getProductsById(product._id)
-    // .subscribe((item: any)=>{
-      const productExistInCar = this.productItem
-      .find((el)=> el === product._id) // find product by id
-        if (!productExistInCar) {
-          this.productItem.push({...product, qty:1}); //// enhance "porduct" opject with "num" property
-          return;
-        }
-        productExistInCar.qty += 1;
-      // let modelProduct = {
-      //       qty: 1,
-      //       product: {
-      //         name: item.name,
-      //         id: item._id,
-      //         price: item.price
-      //       }
-      // }  
-      // this.productItem.push(modelProduct);
-      // console.log(this.productItem);
-    // })
+  addItemToCar(item: any){ //este es un evento que voy a enviar al compon. orders-car = OUTPUT
+    const modelProduct = {
+      qty: 1,
+      product: {
+        name: item.name,
+        id: item._id,
+        price: item.price
+      }
+    }  
+    if (this.productItem) {
+          let productExistInCar = this.productItem
+          .find(product => item._id === product.product.id)
+          if (productExistInCar === undefined) {
+            this.productItem.push(modelProduct)
+          }
+          console.log(this.productItem);
+    }
+    
+    // console.log(modelProduct);
+    
+    //   this.getTotal()
   }
-
-  // getProduct(item: ProductDetailModel): void {
-  //   let modelProduct = {
-  //     qty: 1,
-  //     product: {
-  //       name: item.name,
-  //       id: item._id,
-  //       price: item.price
-  //     }
-  //   }
-  //   if (this.productItem) {
-  //     let productSelec = this.productItem.find(product => {
-  //       return item._id === product.product.id
-  //     })
-  //     if (productSelec === undefined) {
-  //       this.productItem.push(modelProduct)
-  //     }
-  //   }
-  //   this.getTotal()
-
-  // }
 
   getTotal() {
     this.total = this.productItem
