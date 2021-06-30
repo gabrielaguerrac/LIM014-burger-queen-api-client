@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IProductsModel, ProductDetailModel } from 'src/app/models/product';
+import { IProductsModel, ProductDetailModel } from 'src/app/models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,9 @@ export class ProductsService {
 
   getAllProducts (): Observable<ProductDetailModel[]>{
     return this.http.get<Array<ProductDetailModel>>(`${this.url}${this.endpoint}`);
+  }
+  getProductsById(uid: any) {
+    return this.http.get<IProductsModel>(`${this.url}${this.endpoint}${uid}`);
   }
   
 }
