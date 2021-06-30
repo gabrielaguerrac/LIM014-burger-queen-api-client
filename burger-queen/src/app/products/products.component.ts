@@ -12,8 +12,8 @@ import { OrderProductModel} from '../models/orders.model'
 })
 export class ProductsComponent implements OnInit {
 
-  /* @Input() products: ProductDetailModel; */ //lo activo cuando este componente lo lleve a otro
-  @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
+  /* @Input() products: ProductDetailModel; */
+  
 
   items: Array<ProductDetailModel>
   productItem: Array<OrderProductModel>
@@ -34,10 +34,13 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsService.getAllProducts()
-    .subscribe((response: ProductDetailModel[]) => { 
+    .subscribe((response: any) => { 
+      this.items = response.products
       this.allProducts(response)
       this.filterType('burger')
+      // this.addItemToCar(response)
     })
+    this.getTotal()
   }
   
   allProducts (elem:Array<ProductDetailModel>){
@@ -53,8 +56,58 @@ export class ProductsComponent implements OnInit {
   }
   
   addItemToCar(product: any){ //este es un evento que voy a enviar al compon. orders-car = OUTPUT
-    this.addToCar.emit(product) // luego se agrega el objeto
-    console.log(product);
+    // this.productsService.getProductsById(product._id)
+    // .subscribe((item: any)=>{
+      const productExistInCar = this.productItem
+      .find((el)=> el === product._id) // find product by id
+        if (!productExistInCar) {
+          this.productItem.push({...product, qty:1}); //// enhance "porduct" opject with "num" property
+          return;
+        }
+        productExistInCar.qty += 1;
+      // let modelProduct = {
+      //       qty: 1,
+      //       product: {
+      //         name: item.name,
+      //         id: item._id,
+      //         price: item.price
+      //       }
+      // }  
+      // this.productItem.push(modelProduct);
+      // console.log(this.productItem);
+    // })
+  }
+
+  // getProduct(item: ProductDetailModel): void {
+  //   let modelProduct = {
+  //     qty: 1,
+  //     product: {
+  //       name: item.name,
+  //       id: item._id,
+  //       price: item.price
+  //     }
+  //   }
+  //   if (this.productItem) {
+  //     let productSelec = this.productItem.find(product => {
+  //       return item._id === product.product.id
+  //     })
+  //     if (productSelec === undefined) {
+  //       this.productItem.push(modelProduct)
+  //     }
+  //   }
+  //   this.getTotal()
+
+  // }
+
+  getTotal() {
+    this.total = this.productItem
+      .map(item => item.qty * item.product.price)
+      .reduce((acc, item) => acc += item, 0)
+      // if(this.total>0){
+      //   this.able=true}
+      // else{
+      //   this.able=false
+      // }
   }
   // Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
   // filter(elemento: Array<ProductDetailModel>){

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
 import { ProductsService } from '../services/product/products.service'
 
@@ -9,48 +9,40 @@ import { ProductsService } from '../services/product/products.service'
 })
 export class OrdersCarComponent implements OnInit {
 
-  @Input() 
-  items: Array<ProductDetailModel>
-  products: Array<ProductDetailModel>
+  @Input() productItem:any
+  @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
+  
+  // items: Array<ProductDetailModel>
+  // products: Array<ProductDetailModel>
   
 
   constructor(private productsService: ProductsService,) {
-    this.items = []
-    this.products = []
+    // this.items = []
+    // this.products = []
+    this.productItem = []
   }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts()
-    .subscribe((response: ProductDetailModel[]) => { 
-      /* console.log(response, 'dentro de subscribe'); */
-      this.items=response
-      console.log(this.items, 'Kathy smart');
-      
-    })
-    this.addItemToCar
+    console.warn('Pedido', this.productItem);
   }
 
-  allProducts (elem:Array<ProductDetailModel>){
-    elem.forEach((el: ProductDetailModel)=>{
-      this.products.push(el)
-    })
-  }
+  // allProducts (elem:Array<ProductDetailModel>){
+  //   elem.forEach((el: ProductDetailModel)=>{
+  //     this.products.push(el)
+  //   })
+  // }
 
   addItemToCar(product: any){
-    this.productsService.getProductsById(product._id)
-    .subscribe((response: IProductsModel)=>{
-      console.log(response);
-
-    })
+    this.addToCar.emit(product)
   }
 
   minousOneItem(){
-
+    //todo estos métodos tienen output xq estarán en el componente padre
   }
   plusOneItem(){
 
   }
   trashItem(){
-    return this.items;
+    // return this.items;
   }
 }

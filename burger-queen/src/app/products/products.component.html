@@ -11,7 +11,7 @@
     
     
     <section>  
-      
+
       <section>
         <h2>Order 001</h2>
         <h2>Rodrigo</h2>
@@ -38,5 +38,7 @@
       </section>
     </section>
 
-    <orders-car></orders-car>
+    <orders-car 
+      [productItem]="productItem"
+      (addToCar)="addItemToCar($event)"></orders-car>
   </section>
