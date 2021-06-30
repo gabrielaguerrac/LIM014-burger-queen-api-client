@@ -10,21 +10,9 @@
             </thead>
             
             <tbody>
-                <tr>
-                    <td>Burger</td>
+                <tr *ngFor="let product of productItem">
+                    <td>{{product.product.name}}</td>
                     <td>S/. 20</td>
-                    <td>
-                        <div class="container-quantity">
-                            <button (click)="minousOneItem()"><i class="fas fa-minus-circle"></i></button>
-                            <p>1</p>
-                            <button (click)="plusOneItem()"><i class="fas fa-plus-circle"></i></button>
-                            <button (click)="trashItem"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Drink</td>
-                    <td>S/. 10</td>
                     <td>
                         <div class="container-quantity">
                             <button (click)="minousOneItem()"><i class="fas fa-minus-circle"></i></button>
