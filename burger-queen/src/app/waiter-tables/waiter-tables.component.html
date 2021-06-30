@@ -3,7 +3,7 @@
     <aside>
         <bar-side [parasabersieswaiter]="isWaiter"></bar-side>
     </aside> 
-    <!-- <main> -->
+
         <header>
             <section class="generalInfo">
                 <h3>Dashboard</h3>
@@ -21,109 +21,3 @@
             <!-- <orders [data]="orders" (borrar)="borrarOrder($event)" *ngFor="let order of orders"></orders> -->
             <app-orders [data]="order" (deliver)="deliverOrder($event)" *ngFor="let order of orders"></app-orders>
         </main>
-            <!-- <section id="stateNav">
-                <label for="btnNoOrder">
-                    <img src="../assets/icon/no-order-circle.png">
-                    No Order
-                </label>
-                <input hidden type="button" accept="image/png, image/jpeg" value="No order" id="btnNoOrder"/>
-        
-                <label for="btnOrderKitchen">
-                    <img src="../assets/icon/order-kitchen-circle.png">
-                    Order in Kitchen
-                </label>
-                <input hidden type="button" accept="image/png, image/jpeg" value="Order kitchen" id="btnOrderKitchen"/>
-            
-                <label for="btnReadyDeliver">
-                    <img src="../assets/icon/ready-deliver-circle.png">
-                    Ready to Deliver
-                </label>
-                <input hidden type="button" accept="image/png, image/jpeg" value="Order to deliver" id="btnReadyDeliver"/>
-            
-                <label for="btnDelivered">
-                    <img src="../assets/icon/delivered-circle.png">
-                    Delivered
-                </label>
-                <input hidden type="button" accept="image/png, image/jpeg" value="Order delivered" id="btnDelivered"/>
-            </section>
-            <section class="tables">
-                <div id="row1">
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table1</h4> 
-                                <span>Hour</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">No order</p>
-                        </div>
-                    </div>
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table2</h4> 
-                                <span>Hora</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">Order in Kitchen</p>
-                        </div>
-                    </div>
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table3</h4> 
-                                <span>Hour</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">Ready to Deliver</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="row2">
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table4</h4> 
-                                <span>Hour</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">Delivered</p>
-                        </div>
-                    </div>
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table5</h4> 
-                                <span>Hour</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">No order</p>
-                        </div>
-                    </div>
-                    <div class="table-single">
-                        <div class="table-body">
-                            <span></span>
-                            <div>
-                                <h4>Table6</h4> 
-                                <span>Hour</span> 
-                            </div>
-                        </div>
-                        <div class="table-footer">
-                            <p class="table-state">No order</p>
-                        </div>
-                    </div>
-                </div>
-            </section> -->
-       
-    <!-- </main>
- -->
