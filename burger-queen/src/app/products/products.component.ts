@@ -66,7 +66,7 @@ export class ProductsComponent implements OnInit {
           }
           console.log(this.productItem);
     }    
-    //   this.getTotal()
+    this.getTotal()
   }
   minousOneItem(item: OrderProductModel){
     this.productItem = this.productItem.map((el)=>{
@@ -75,6 +75,7 @@ export class ProductsComponent implements OnInit {
       }
       return el
     })
+    this.getTotal()
   }
   plusOneItem(item: OrderProductModel){
     this.productItem = this.productItem.map((el)=>{
@@ -86,10 +87,12 @@ export class ProductsComponent implements OnInit {
       }
       return el
     })
+    this.getTotal()
   }
   trashItem(item: OrderProductModel){
     let index = this.productItem.indexOf(item)
     this.productItem.splice(index, 1)
+    this.getTotal()
   }
   getTotal() {
     this.total = this.productItem

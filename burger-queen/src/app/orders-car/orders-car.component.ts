@@ -10,6 +10,7 @@ import { IProductsModel, ProductDetailModel } from '../models/product.model';
 export class OrdersCarComponent implements OnInit {
 
   @Input() productItem:any
+  @Input() total:number = 0
   @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
   @Output() minousOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() plusOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
