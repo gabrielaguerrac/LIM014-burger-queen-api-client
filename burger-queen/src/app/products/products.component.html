@@ -40,5 +40,8 @@
 
     <orders-car 
       [productItem]="productItem"
-      (addToCar)="addItemToCar($event)"></orders-car>
+      (addToCar)="addItemToCar($event)"
+      (minousOneItem)="minousOneItem($event)"
+      (plusOneItem)="plusOneItem($event)"
+      (trashItem)="trashItem($event)"></orders-car>
   </section>

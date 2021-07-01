@@ -12,13 +12,13 @@
             <tbody>
                 <tr *ngFor="let product of productItem">
                     <td>{{product.product.name}}</td>
-                    <td>S/. 20</td>
+                    <td>{{product.product.price}}</td>
                     <td>
                         <div class="container-quantity">
-                            <button (click)="minousOneItem()"><i class="fas fa-minus-circle"></i></button>
-                            <p>1</p>
-                            <button (click)="plusOneItem()"><i class="fas fa-plus-circle"></i></button>
-                            <button (click)="trashItem"><i class="fas fa-trash-alt"></i></button>
+                            <button (click)="minousOne(product)"><i class="fas fa-minus-circle"></i></button>
+                            <p>{{product.qty}}</p>
+                            <button (click)="plusOne(product)"><i class="fas fa-plus-circle"></i></button>
+                            <button (click)="trash(product)"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     </td>
                 </tr>

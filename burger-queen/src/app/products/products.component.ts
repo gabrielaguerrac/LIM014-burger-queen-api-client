@@ -12,9 +12,6 @@ import { OrderProductModel} from '../models/orders.model'
 })
 export class ProductsComponent implements OnInit {
 
-  /* @Input() products: ProductDetailModel; */
-  
-
   items: Array<ProductDetailModel>
   productItem: Array<OrderProductModel>
   productsTypes = new Set()
@@ -52,7 +49,7 @@ export class ProductsComponent implements OnInit {
       return elem.type === category;
     })
   }
-  addItemToCar(item: any){ //este es un evento que voy a enviar al compon. orders-car = OUTPUT
+  addItemToCar(item: any){ 
     const modelProduct = {
       qty: 1,
       product: {
@@ -64,17 +61,36 @@ export class ProductsComponent implements OnInit {
     if (this.productItem) {
           let productExistInCar = this.productItem
           .find(product => item._id === product.product.id)
-          if (productExistInCar === undefined) {
+          if (!productExistInCar) {
             this.productItem.push(modelProduct)
           }
           console.log(this.productItem);
-    }
-    
-    // console.log(modelProduct);
-    
+    }    
     //   this.getTotal()
   }
-
+  minousOneItem(item: OrderProductModel){
+    this.productItem = this.productItem.map((el)=>{
+      if (el.product.id === item.product.id && el.qty > 1) {
+        el.qty--
+      }
+      return el
+    })
+  }
+  plusOneItem(item: OrderProductModel){
+    this.productItem = this.productItem.map((el)=>{
+      if (el.product.id === item.product.id) {
+        el.qty++
+      }else if (el.product.id === item.product.id && el.qty <= 1) {
+        let index = this.productItem.indexOf(item)
+        this.productItem.splice(index, 1)
+      }
+      return el
+    })
+  }
+  trashItem(item: OrderProductModel){
+    let index = this.productItem.indexOf(item)
+    this.productItem.splice(index, 1)
+  }
   getTotal() {
     this.total = this.productItem
       .map(item => item.qty * item.product.price)
@@ -85,12 +101,6 @@ export class ProductsComponent implements OnInit {
       //   this.able=false
       // }
   }
-  // Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
-  // filter(elemento: Array<ProductDetailModel>){
-  //   elemento.forEach((el: ProductDetailModel)=>{
-  //     this.productsTypes.add(el.type)
-  //   })
-  // }
 }
 
 

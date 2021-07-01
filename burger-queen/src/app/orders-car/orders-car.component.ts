@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { OrderProductModel } from '../models/orders.model';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
-import { ProductsService } from '../services/product/products.service'
 
 @Component({
   selector: 'orders-car',
@@ -11,39 +11,27 @@ export class OrdersCarComponent implements OnInit {
 
   @Input() productItem:any
   @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
-  
-  // items: Array<ProductDetailModel>
-  // products: Array<ProductDetailModel>
-  
+  @Output() minousOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
+  @Output() plusOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
+  @Output() trashItem: EventEmitter<OrderProductModel> = new EventEmitter()
 
   constructor() {
-    // this.items = []
-    // this.products = []
     this.productItem = []
   }
-
   ngOnInit(): void {
     console.warn('Pedido', this.productItem);
     // this.addItemToCar(this.productItem)
   }
-
-  // allProducts (elem:Array<ProductDetailModel>){
-  //   elem.forEach((el: ProductDetailModel)=>{
-  //     this.products.push(el)
-  //   })
-  // }
-
   addItemToCar(product: any){
     this.addToCar.emit(product)
   }
-
-  minousOneItem(){
-    //todo estos métodos tienen output xq estarán en el componente padre
+  minousOne(product: any){
+    this.minousOneItem.emit(product)
   }
-  plusOneItem(){
-
+  plusOne(product: any){
+    this.plusOneItem.emit(product)
   }
-  trashItem(){
-    // return this.items;
+  trash(product: any){
+    this.trashItem.emit(product)
   }
 }
