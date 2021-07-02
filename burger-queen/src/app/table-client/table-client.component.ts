@@ -12,7 +12,6 @@ export class TableClientComponent implements OnInit {
   @Output() getModalChild: EventEmitter<boolean> = new EventEmitter()
   @Output() closeModalChild: EventEmitter<boolean> = new EventEmitter()
   @Output() getClientName: EventEmitter<any> = new EventEmitter()
-
   /* nameClient: FormControl; */
 
   constructor() { 
@@ -22,8 +21,8 @@ export class TableClientComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  getName(){
-    this.getClientName.emit()
+  getName(element: boolean){
+    this.getClientName.emit(element)
   }
   getModal(element: boolean){
     this.getModalChild.emit(element)

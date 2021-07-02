@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
 import { OrderProductModel } from '../models/orders.model';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
-import { TableClientComponent } from '../table-client/table-client.component';
 
 @Component({
   selector: 'orders-car',
@@ -10,7 +8,8 @@ import { TableClientComponent } from '../table-client/table-client.component';
   styleUrls: ['./orders-car.component.css']
 })
 export class OrdersCarComponent implements OnInit {
-  @Input() nameClient: FormControl;
+  @Input() name: string
+  @Input() today: number
   @Input() productItem:any
   @Input() total:number = 0
   @Input() showButton:boolean = false
@@ -20,12 +19,12 @@ export class OrdersCarComponent implements OnInit {
   @Output() trashItem: EventEmitter<OrderProductModel> = new EventEmitter()
 
   constructor() {
-    this.nameClient = new FormControl('', [Validators.required]);
+    this.name = ""
     this.productItem = []
+    this.today = Date.now()
   }
   ngOnInit(): void {
-    console.warn('Pedido', this.productItem);
-    // this.addItemToCar(this.productItem)
+    /* console.warn('Pedido', this.productItem); */
   }
   
   addItemToCar(product: any){

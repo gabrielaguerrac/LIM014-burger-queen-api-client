@@ -19,10 +19,11 @@ export class ProductsComponent implements OnInit {
   typesProduct = 'burger'
   products: Array<ProductDetailModel>
   total: number
-  // name: string
   show: boolean
   showButton: boolean
   nameClient: FormControl
+  name: string
+  today: number 
 
   constructor(private productsService: ProductsService,) { 
     this.productItem = []
@@ -32,6 +33,8 @@ export class ProductsComponent implements OnInit {
     this.show = false
     this.showButton = false
     this.nameClient = new FormControl('', [Validators.required]);
+    this.name = ""
+    this.today = Date.now()
   }
 
   ngOnInit(): void {
@@ -60,8 +63,10 @@ export class ProductsComponent implements OnInit {
   closeModal(element: boolean){
     this.show = element
   }
-  getName(){
-    console.log(this.nameClient.value);
+  getName(element: boolean, ){
+    this.show = element
+    this.name = this.nameClient.value
+    this.nameClient.reset()
   }
   addItemToCar(item: any){ 
     const modelProduct = {
