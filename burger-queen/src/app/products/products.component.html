@@ -5,18 +5,18 @@
   <!-- <section *ngFor="let types of productsTypes">
     <button >{{types}}</button>
   </section> -->
+  <app-table-client
+    (getModalChild)="getModal($event)"
+    (closeModalChild)="closeModal($event)"
+    (getClientName)="getName()"
+    [show]="show"
+    [nameClient]="nameClient"></app-table-client>
+
   <section class="dashboard-waiter">
 
     <bar-side></bar-side>
     
-    
     <section>  
-
-      <section>
-        <h2>Order 001</h2>
-        <h2>Rodrigo</h2>
-        <h4>Tuesday, 2 Feb 2021</h4>
-      </section>
       <!-- Botones de la cabecera -->
       <section class="buttons-header">
         <section class="buttons-types">
@@ -25,7 +25,7 @@
           <button (click)="filterType('side dishes')">Side Dishes</button>
         </section>
         
-        <button id="btn-new-order">New order</button>
+        <button id="btn-new-order" (click)="getModal(true)">New order</button>
       </section>
 
       <section class="container-product">
@@ -39,6 +39,13 @@
     </section>
 
     <orders-car 
+      [nameClient]="nameClient"
       [productItem]="productItem"
-      (addToCar)="addItemToCar($event)"></orders-car>
+      [total]="total"
+      [showButton]="showButton"
+      (addToCar)="addItemToCar($event)"
+      (minousOneItem)="minousOneItem($event)"
+      (plusOneItem)="plusOneItem($event)"
+      (trashItem)="trashItem($event)"></orders-car>
+      
   </section>

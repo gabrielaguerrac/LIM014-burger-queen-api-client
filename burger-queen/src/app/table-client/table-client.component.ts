@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,25 +7,28 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./table-client.component.css']
 })
 export class TableClientComponent implements OnInit {
+  @Input() show:boolean = false
+  @Input() nameClient: FormControl;
+  @Output() getModalChild: EventEmitter<boolean> = new EventEmitter()
+  @Output() closeModalChild: EventEmitter<boolean> = new EventEmitter()
+  @Output() getClientName: EventEmitter<any> = new EventEmitter()
 
-  nameClient: FormControl;
+  /* nameClient: FormControl; */
 
   constructor() { 
-    this.nameClient = new FormControl('', [Validators.required]);
-    //---Puede servir para ver el cambio de estados en mesas u ordenes
-    // this.nameClient.valueChanges
-    // .subscribe(value=>{
-    //   console.log(value);
-    // });
+   this.nameClient = new FormControl('', [Validators.required]);
   }
 
   ngOnInit(): void {
   }
-
-  addClientName(){
-    if(this.nameClient.valid){
-      console.log(this.nameClient.value);
-    }
+  
+  getName(){
+    this.getClientName.emit()
   }
-
+  getModal(element: boolean){
+    this.getModalChild.emit(element)
+  }
+  closeModal(element: boolean){
+    this.closeModalChild.emit(element)
+  }
 }
