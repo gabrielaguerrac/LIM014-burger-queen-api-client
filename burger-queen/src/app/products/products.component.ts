@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
 import { ProductsService } from '../services/product/products.service';
 import { OrderProductModel} from '../models/orders.model'
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
@@ -21,6 +22,7 @@ export class ProductsComponent implements OnInit {
   // name: string
   show: boolean
   showButton: boolean
+  nameClient: FormControl
 
   constructor(private productsService: ProductsService,) { 
     this.productItem = []
@@ -29,6 +31,7 @@ export class ProductsComponent implements OnInit {
     this.total = 0
     this.show = false
     this.showButton = false
+    this.nameClient = new FormControl('', [Validators.required]);
   }
 
   ngOnInit(): void {
@@ -56,6 +59,9 @@ export class ProductsComponent implements OnInit {
   }
   closeModal(element: boolean){
     this.show = element
+  }
+  getName(){
+    console.log(this.nameClient.value);
   }
   addItemToCar(item: any){ 
     const modelProduct = {

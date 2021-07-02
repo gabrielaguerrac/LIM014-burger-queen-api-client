@@ -1,8 +1,11 @@
 <div *ngIf="show" class="container-modal">
     <span (click)="closeModal(false)" class="close">&times;</span>
     <h3>NEW ORDER</h3>
+
     <input [formControl]="nameClient" type="text" placeholder="Client name">
+    
     <p *ngIf="nameClient.invalid">Please enter client name</p>
-    <button [disabled]="nameClient.invalid" (click)="addClientName()">Continue</button>
+    
+    <button [disabled]="nameClient.invalid" (click)="getName()">Continue</button>
 </div>
 

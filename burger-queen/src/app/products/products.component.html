@@ -8,14 +8,14 @@
   <app-table-client
     (getModalChild)="getModal($event)"
     (closeModalChild)="closeModal($event)"
-    [show]="show"></app-table-client>
+    (getClientName)="getName()"
+    [show]="show"
+    [nameClient]="nameClient"></app-table-client>
 
   <section class="dashboard-waiter">
 
     <bar-side></bar-side>
     
-
-
     <section>  
       <!-- Botones de la cabecera -->
       <section class="buttons-header">
@@ -39,6 +39,7 @@
     </section>
 
     <orders-car 
+      [nameClient]="nameClient"
       [productItem]="productItem"
       [total]="total"
       [showButton]="showButton"
