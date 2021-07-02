@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,9 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrls: ['./table-client.component.css']
 })
 export class TableClientComponent implements OnInit {
+  @Input() show:boolean = false
+  @Output() getModalChild: EventEmitter<boolean> = new EventEmitter()
+  @Output() closeModalChild: EventEmitter<boolean> = new EventEmitter()
 
   nameClient: FormControl;
 
@@ -27,5 +30,10 @@ export class TableClientComponent implements OnInit {
       console.log(this.nameClient.value);
     }
   }
-
+  getModal(element: boolean){
+    this.getModalChild.emit(element)
+  }
+  closeModal(element: boolean){
+    this.closeModalChild.emit(element)
+  }
 }

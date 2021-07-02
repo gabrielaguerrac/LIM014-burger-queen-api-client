@@ -11,6 +11,7 @@ export class OrdersCarComponent implements OnInit {
 
   @Input() productItem:any
   @Input() total:number = 0
+  @Input() showButton:boolean = false
   @Output() addToCar: EventEmitter<ProductDetailModel> = new EventEmitter()
   @Output() minousOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() plusOneItem: EventEmitter<OrderProductModel> = new EventEmitter()

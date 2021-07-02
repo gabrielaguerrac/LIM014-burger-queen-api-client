@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
@@ -19,14 +19,16 @@ export class ProductsComponent implements OnInit {
   products: Array<ProductDetailModel>
   total: number
   // name: string
-  able: boolean
+  show: boolean
+  showButton: boolean
 
   constructor(private productsService: ProductsService,) { 
     this.productItem = []
     this.items = []
     this.products = [] //contiene todos
     this.total = 0
-    this.able = false
+    this.show = false
+    this.showButton = false
   }
 
   ngOnInit(): void {
@@ -48,6 +50,12 @@ export class ProductsComponent implements OnInit {
     this.items = this.products.filter((elem: ProductDetailModel) => {
       return elem.type === category;
     })
+  }
+  getModal(element: boolean){
+    this.show = element
+  }
+  closeModal(element: boolean){
+    this.show = element
   }
   addItemToCar(item: any){ 
     const modelProduct = {
@@ -98,12 +106,18 @@ export class ProductsComponent implements OnInit {
     this.total = this.productItem
       .map(item => item.qty * item.product.price)
       .reduce((acc, item) => acc += item, 0)
-      // if(this.total>0){
-      //   this.able=true}
-      // else{
-      //   this.able=false
-      // }
+      if(this.total>0){
+        this.showButton=true}
+      else{
+        this.showButton=false
+      }
   }
+  //Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
+  // filter(elemento: Array<ProductDetailModel>){
+  //   elemento.forEach((el: ProductDetailModel)=>{
+  //     this.productsTypes.add(el.type)
+  //   })
+  // }
 }
 
 
