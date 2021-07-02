@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./bar-side.component.css']
 })
 export class BarSideComponent implements OnInit {
-  @Input() parasabersieswaiter:any;
+  @Input('') parasabersieswaiter:any;
 
   isAdmin: boolean=true;
 

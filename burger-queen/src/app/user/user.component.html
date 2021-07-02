@@ -1,31 +1,52 @@
 <bar-side></bar-side>
-<div class="row">
-    <div class="col">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Email</th>
-                    <th>Manager</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>admin@gmail.com</td>
-                    <td>true</td>
-                    <td>
-                        <button><i class="fas fa-pencil-alt"></i></button>
-                    </td>
-                    <td>
-                        <button><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<app-form-new-user 
+[show]="show"
+(getForm)="getFormNewUser($event)" 
+(closeForm)="closeFormNewUser($event)"></app-form-new-user>
+<header>
+    <section class="generalInfo">
+        <h3>Dashboard</h3>
+    </section>
+    <section id="infoWaiter">
+        <h4></h4>
+        <h4>Manager</h4> 
+        <label for="fileButton">
+            <i class="fas fa-camera"></i>
+        </label>
+        <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
+    </section>
+</header>  
+<main>
+    <button class="btn-add-user" (click)="getFormNewUser(true)">New User</button>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead >
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th> 
+                        <th>Email</th>
+                        <th>Manager</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let singleUser of users">
+                        <td>{{singleUser._id}}</td>
+                        <td>Juana</td>
+                        <td>{{singleUser.email}}</td>
+                        <td>{{singleUser.roles.admin}}</td>
+                        <td>
+                            <button class="btn-edit" (click)="editUser()"><i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn-delete" (click)="deleteUser()"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
+</main>
 

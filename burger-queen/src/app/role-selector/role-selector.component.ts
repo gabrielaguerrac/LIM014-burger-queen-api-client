@@ -21,7 +21,7 @@ export class RoleSelectorComponent implements OnInit {
 }
 
   public redirectKitchen(){
-    this.router.navigate(['/orderskitchen']);
+    this.router.navigate(['/products']);
   }
 
 }

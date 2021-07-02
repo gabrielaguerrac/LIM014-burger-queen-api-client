@@ -1,0 +1,32 @@
+<div *ngIf="show" class="modal">
+
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <section class="modal-content-header">
+        <span (click)="closeFormNewUser(false)" class="close">&times;</span>
+    </section>
+    <section class="modal-content-body">
+        <h2>User Register</h2>
+        <form [formGroup]="registerUserForm">
+            
+            <input type="text" formControlName="name" placeholder="Enter name">
+            <input type="text" formControlName="email" placeholder="Enter email">
+            <div formGroupName="manager" class="checkbox-group">
+                <label>Manager
+                    <input formControlName="isAdmin" type="checkbox">
+                </label>
+                <label>Waiter - Kitchen
+                    <input formControlName="isWaiterKit" type="checkbox">
+                </label>
+
+            </div>
+            <button type="submit" class="btn-add-user">Add user</button>
+        </form>
+    </section>
+    <!-- <p>Some text in the Modal..</p> -->
+    
+
+  </div>
+
+</div>

@@ -2,12 +2,13 @@
 // compendio de módulos que se va creando
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/interceptor/token.interceptor';
 import { UsersService } from './services/user/users.service';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { Page404Component } from './page404/page404.component';
 import { RoleSelectorComponent } from './role-selector/role-selector.component';
 import { TableClientComponent } from './table-client/table-client.component';
 import { OrdersCarComponent } from './orders-car/orders-car.component';
+import { FormNewUserComponent } from './form-new-user/form-new-user.component';
 
 
 
@@ -43,7 +45,8 @@ import { OrdersCarComponent } from './orders-car/orders-car.component';
     Page404Component,
     RoleSelectorComponent,
     TableClientComponent,
-    OrdersCarComponent
+    OrdersCarComponent,
+    FormNewUserComponent
   ],
   imports: [
     BrowserModule,

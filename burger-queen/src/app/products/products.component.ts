@@ -35,6 +35,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getAllProducts()
     .subscribe((response: any) => { 
+      console.log(response);
       this.items = response.products
       this.allProducts(response)
       this.filterType('burger')
