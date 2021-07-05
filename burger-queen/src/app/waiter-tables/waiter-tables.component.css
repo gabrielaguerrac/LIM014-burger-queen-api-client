@@ -72,30 +72,6 @@ header {
     align-content: space-around;
 }
 
-.main-body{
-    /* margin-top: 60px; */
-    display: flex;
-    flex-direction: column;
-    /* min-height: 90vh; */
-    /* padding: 1rem; */
-    z-index: 101;
-    width: calc(100% - 4.3rem);
-    margin-left:4.3rem ;
-    
-    /* align-items: center; */
- 
-}
-
-#stateNav{
-    /* top: calc(100% - 60px); */
-    /* display: flex; */
-    margin-top: 60px;
-    z-index: 100;
-}
-
-app-orders{
-    position: relative;
-}
 
 .tables{
     /* display: grid;

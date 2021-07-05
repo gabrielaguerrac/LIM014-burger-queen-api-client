@@ -1,16 +1,10 @@
-  <!-- <section *ngFor="let category of dishCategories"  (click)="filterCategory(category)">
-    <button>{{category}}</button>
-    
-  </section> -->
-  <!-- <section *ngFor="let types of productsTypes">
-    <button >{{types}}</button>
-  </section> -->
   <app-table-client
     (getModalChild)="getModal($event)"
     (closeModalChild)="closeModal($event)"
-    (getClientName)="getName()"
+    (getClientName)="getName($event)"
     [show]="show"
-    [nameClient]="nameClient"></app-table-client>
+    [nameClient]="nameClient">
+  </app-table-client>
 
   <section class="dashboard-waiter">
 
@@ -39,13 +33,16 @@
     </section>
 
     <orders-car 
-      [nameClient]="nameClient"
+      [client]="client"
+      [today]="today"
       [productItem]="productItem"
       [total]="total"
       [showButton]="showButton"
       (addToCar)="addItemToCar($event)"
       (minousOneItem)="minousOneItem($event)"
       (plusOneItem)="plusOneItem($event)"
-      (trashItem)="trashItem($event)"></orders-car>
+      (trashItem)="trashItem($event)"
+      (newOrderClient)="newOrderClient($event)">
+    </orders-car>
       
   </section>

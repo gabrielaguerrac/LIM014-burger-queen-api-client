@@ -8,20 +8,16 @@
     </section>
     <section class="modal-content-body">
         <h2>User Register</h2>
-        <form [formGroup]="registerUserForm">
-            <input type="text" formControlName="name" placeholder="Enter name">
+        <form [formGroup]="registerUserForm" (ngSubmit)="onSaveForm()">
             <input type="text" formControlName="email" placeholder="Enter email">
             <input type="password" formControlName="password" placeholder="Enter password">
-            <div formGroupName="manager" class="checkbox-group">
-                <label>Manager
-                    <input formControlName="isManager" type="checkbox">
-                </label>
-                <label>Waiter - Kitchen
-                    <input formControlName="isWaiterKit" type="checkbox">
+            <div class="checkbox-group">
+                <label>Admin
+                    <input formControlName="admin" type="checkbox">
                 </label>
             </div>
             <span [hidden]=false class="errorMessage">Check one option</span>
-            <button type="submit" class="btn-add-user" (click)="onSaveForm()">Save</button>
+            <button type="submit" class="btn-add-user">Save</button>
         </form>
     </section>
     <!-- <p>Some text in the Modal..</p> -->

@@ -46,10 +46,10 @@ export class UserComponent implements OnInit {
     })
   }
 
-  newUser(form: any){
+  newUser(userData: any){
     //llamar al servicio
     console.log('en user component');
-    this.usersService.addUser(form)
+    this.usersService.addUser(userData)
     .subscribe((response: any) => {
       console.log(response,'response new user');
       
@@ -77,8 +77,9 @@ export class UserComponent implements OnInit {
     this.show = elem;
   }
 
-  editUser(){
-    console.log('click en edit');
+  editUser(user: any){
+    console.log(user._id);
+    this.getFormNewUser(user);
   }
 
   deleteUser(){

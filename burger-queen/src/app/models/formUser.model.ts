@@ -9,6 +9,5 @@ export interface IFormUser {
   }
   
   export interface ManagerModel {
-    isManager: boolean,
-    isWaiterKit: boolean,
+   admin:boolean;
   }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../services/user/users.service';
 
 @Component({
@@ -10,23 +10,33 @@ import { UsersService } from '../services/user/users.service';
 export class FormNewUserComponent implements OnInit {
 
   @Input() show: boolean = false;
+  @Input() user: any;
   @Output() getForm: EventEmitter<boolean> = new EventEmitter();
   @Output() closeForm: EventEmitter<boolean> = new EventEmitter();
 
   @Output() newUser: EventEmitter<any> = new EventEmitter();
 
-  registerUserForm: FormGroup;
+  registerUserForm = new FormGroup({ //esta funcion recibe un objeto que ser'a parte del group
+    email:new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+    admin: new FormControl(false),
+  })
   
-  constructor(private usersService: UsersService){
-    this.registerUserForm = this.createFormGroup();
+  
+  constructor(){
+    // this.registerUserForm = this.createFormGroup();
+    this.user;
   }
 
   ngOnInit(): void {
   }
 
+  // registerUserForm: FormGroup;
+
 // Funciones para abrir y cerrar formulario
 getFormNewUser(elem:boolean){
   this.getForm.emit(elem);
+  
 }
 
 closeFormNewUser(elem: boolean) {
@@ -34,25 +44,12 @@ closeFormNewUser(elem: boolean) {
 }      
 
 // Funciones propias de formulario reactivo
-createFormGroup(){
-  return new FormGroup({ //esta funcion recibe un objeto que ser'a parte del group
-    name: new FormControl(''),
-    email:new FormControl(''),
-    password: new FormControl(''),
-    manager: new FormGroup({
-      isManager: new FormControl(false),
-      isWaiterKit: new FormControl(false)
-    })
-  })
-}
-
-onResetForm(){
-  this.registerUserForm.reset();
-}
-
 onSaveForm() {
   console.log('guardado');
-  this.newUser.emit();
+  const newUserData = this.registerUserForm.value;
+  this.newUser.emit(newUserData);
+  this.registerUserForm.reset();
+  this.closeForm.emit();
 }
   // this.usersService.addUser({registerUserForm})
   // if(registerUserForm.value._id == null){
