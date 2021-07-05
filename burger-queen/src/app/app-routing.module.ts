@@ -12,12 +12,15 @@ import { OrdersCarComponent } from './orders-car/orders-car.component'
 import { WaiterTablesComponent } from './waiter-tables/waiter-tables.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrdersKitchenComponent } from './orders-kitchen/orders-kitchen.component';
+import { InventoryAdminComponent } from './inventory-admin/inventory-admin.component';
+import { ProductivityKitchenComponent } from './productivity-kitchen/productivity-kitchen.component';
 
 // Array de rutas
 const routes: Routes = [
   {path: '', component: LoginComponent}, //por default
   // { path: '/offers', component: OffersComponent } // TO DO: only users auth
   {path: 'user', component: UserComponent},
+  {path: 'inventory', component: InventoryAdminComponent},
   {path: 'user/:id', component: UserComponent},
   {path: 'roleselector', component: RoleSelectorComponent},
   {path: 'products', component: ProductsComponent},
@@ -25,13 +28,15 @@ const routes: Routes = [
   {path: 'waitertables', component: WaiterTablesComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'orderskitchen', component: OrdersKitchenComponent},
+  {path: 'productivityk', component:ProductivityKitchenComponent},
   {path: '**', component: Page404Component} //mientras login hasta tener un componente de error
-
 ];
 
 @NgModule({
   // cargamos todas las configuraciones de la ruta
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    paramsInheritanceStrategy: 'always'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

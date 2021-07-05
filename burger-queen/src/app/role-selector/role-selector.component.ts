@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./role-selector.component.css']
 })
 export class RoleSelectorComponent implements OnInit {
-
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router ) { }
@@ -21,7 +21,7 @@ export class RoleSelectorComponent implements OnInit {
 }
 
   public redirectKitchen(){
-    this.router.navigate(['/orderskitchen']);
+    this.router.navigate(['/products']);
   }
 
 }
