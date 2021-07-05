@@ -8,177 +8,177 @@
 }
 @media screen and (min-width: 600px) and (max-width: 1400px){
 
-/* body, .generalInfo, #infoWaiter, #stateNav, .tables {
-    display: flex;
-} */
+    /* body, .generalInfo, #infoWaiter, #stateNav, .tables {
+        display: flex;
+    } */
 
-/* body{
-    flex-direction: column;
-} */
+    /* body{
+        flex-direction: column;
+    } */
 
-aside{
-    height: 100%;
-    width: 4.3rem;
-}
+    aside{
+        height: 100%;
+        width: 4.3rem;
+    }
 
-main{
-    /* position: relative; */
-    width: calc(100% - 4.3rem);
-    display: flex;
-    flex-wrap: wrap;
-    margin-left:4.3rem ;
-    justify-content: center;
-    position: absolute;
-    top: 60px;
-    /* display: flex;
-    flex-direction: column; */
-    /* margin-left: 240px; */
-}
+    main{
+        /* position: relative; */
+        width: calc(100% - 4.3rem);
+        display: flex;
+        flex-wrap: wrap;
+        margin-left:4.3rem ;
+        justify-content: center;
+        position: absolute;
+        top: 60px;
+        /* display: flex;
+        flex-direction: column; */
+        /* margin-left: 240px; */
+    }
 
-header {
-    /* display: flex;
-    justify-content: space-between;
-    margin-left: 4.3rem; */
-    position:absolute;
-    top: 0;
-    background-color: honeydew;
-    width: calc(100% - 4.3rem);
-    margin-left:4.3rem ;
-    z-index: 100;
-    height: 60px;
-    padding: 0rem, 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    header {
+        /* display: flex;
+        justify-content: space-between;
+        margin-left: 4.3rem; */
+        position:absolute;
+        top: 0;
+        background-color: honeydew;
+        width: calc(100% - 4.3rem);
+        margin-left:4.3rem ;
+        z-index: 100;
+        height: 60px;
+        padding: 0rem, 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
 
-.generalInfo h3{
-    margin-left:4.3rem ;
-}
+    .generalInfo h3{
+        margin-left:4.3rem ;
+    }
 
-#infoWaiter{
-    display: flex;
-    /* margin-left: 1.2rem; */
-}
+    #infoWaiter{
+        display: flex;
+        /* margin-left: 1.2rem; */
+    }
 
-#infoWaiter i{
-    width: 40px;
-    height: 40px;
-    display: flex;
-}
+    #infoWaiter i{
+        width: 40px;
+        height: 40px;
+        display: flex;
+    }
 
-#infoWaiter h4{
-    flex-direction: column;
-    align-content: space-around;
-}
+    #infoWaiter h3{
+        flex-direction: column;
+        align-content: space-around;
+    }
 
-.main-body{
-    /* margin-top: 60px; */
-    display: flex;
-    flex-direction: column;
-    /* min-height: 90vh; */
-    /* padding: 1rem; */
-    z-index: 101;
-    width: calc(100% - 4.3rem);
-    margin-left:4.3rem ;
+    .main-body{
+        /* margin-top: 60px; */
+        display: flex;
+        flex-direction: column;
+        /* min-height: 90vh; */
+        /* padding: 1rem; */
+        z-index: 101;
+        width: calc(100% - 4.3rem);
+        margin-left:4.3rem ;
+        
+        /* align-items: center; */
     
-    /* align-items: center; */
- 
-}
+    }
 
-#stateNav{
-    /* top: calc(100% - 60px); */
-    /* display: flex; */
-    margin-top: 60px;
-    z-index: 100;
-}
+    #stateNav{
+        /* top: calc(100% - 60px); */
+        /* display: flex; */
+        margin-top: 60px;
+        z-index: 100;
+    }
 
-app-orders{
-    position: relative;
-}
+    app-orders{
+        position: relative;
+    }
 
-.tables{
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 5fr);
-    grid-column-gap: 5rem; */
-    display: flex;
-    flex-direction: column;
-    /* z-index: 100; */
-}
+    .tables{
+        /* display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 5fr);
+        grid-column-gap: 5rem; */
+        display: flex;
+        flex-direction: column;
+        /* z-index: 100; */
+    }
 
-.table-single{
-    display: flex;
-    background: rosybrown;
-    border: solid 5px rebeccapurple;
-    border-radius: 20px;
-    padding:10px;
-    margin:10px;
-    width: 200px;
-    flex-direction: column;
-}
+    .table-single{
+        display: flex;
+        background: rosybrown;
+        border: solid 5px rebeccapurple;
+        border-radius: 20px;
+        padding:10px;
+        margin:10px;
+        width: 200px;
+        flex-direction: column;
+    }
 
-.table-body{
-    display: flex;
+    .table-body{
+        display: flex;
 
-}
+    }
 
 
 
-/* .tables{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-    /* flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    align-items: center;
-    top: 300px; }*/
-    
-/*
+    /* .tables{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 2rem;
+        /* flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        align-items: center;
+        top: 300px; }*/
+        
+    /*
 
-#infoWaiter{
-    /* flex-direction: column;    */
-    /* position: relative;
-}
+    #infoWaiter{
+        /* flex-direction: column;    */
+        /* position: relative;
+    }
 
-#stateNav{
-    align-items: center;
-    position: absolute;
-    top: 150px;
-    left: 300px;
-}
+    #stateNav{
+        align-items: center;
+        position: absolute;
+        top: 150px;
+        left: 300px;
+    }
 
-.generalInfo {
-    position: relative;
-    top: 10px;
-}
-
-
-
-.table{
-    display: flex;
-    border: 3px;
-    border-radius: 0.5;
-    border-color: teal;
-    align-content: center;
-}  */
-
-/* #stateNav{
-    /* align-items: center; */
-    /* position: absolute;
-    top: 150px;
-    left: 300px;
-} */ 
+    .generalInfo {
+        position: relative;
+        top: 10px;
+    }
 
 
-/* .table{
-    display: flex;
-    border: 3px;
-    border-radius: 0.5;
-    border-color: solid teal;
-    align-content: center;
-    justify-content: center;
-}  */
+
+    .table{
+        display: flex;
+        border: 3px;
+        border-radius: 0.5;
+        border-color: teal;
+        align-content: center;
+    }  */
+
+    /* #stateNav{
+        /* align-items: center; */
+        /* position: absolute;
+        top: 150px;
+        left: 300px;
+    } */ 
+
+
+    /* .table{
+        display: flex;
+        border: 3px;
+        border-radius: 0.5;
+        border-color: solid teal;
+        align-content: center;
+        justify-content: center;
+    }  */
 
 }
