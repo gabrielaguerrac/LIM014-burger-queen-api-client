@@ -6,6 +6,9 @@
     text-decoration: none;
     font-family: 'Barlow';
 }
+
+
+
 @media screen and (min-width: 600px) and (max-width: 1400px){
 
     aside{
@@ -24,17 +27,22 @@
     }
 
     header {
-        position:absolute;
+        /* position:absolute; */
         top: 0;
         background-color: honeydew;
-        width: calc(100% - 4.3rem);
-        margin-left:4.3rem ;
+        /* width: calc(100% - 4.3rem); */
+        width: 55rem;
         z-index: 100;
         height: 60px;
-        padding: 0rem, 1rem;
+        /* padding: 0rem, 1rem; */
         display: flex;
         align-items: center;
         justify-content: space-around;
+    }
+
+    .head-order{
+        display: flex;
+        flex-direction: column;
     }
 
     .generalInfo h3{
@@ -58,6 +66,32 @@
         padding: 1.5rem;
     }
 
-   
+    body{
+        display: flex;
+    }
+    .container-all{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ---- Botón Ready to deliver ---- */
+    .btn-general {
+        margin: 0.8rem;
+        padding: 0.8rem;
+        border:white;
+        color: white;
+        background-color: #123520;
+        border-radius: 8px;
+        align-self: center;
+        box-shadow: 0 6px #999;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+    .btn-general:active{
+        color: #123520;
+        background-color: white;
+        box-shadow: 0 4px #666;
+        transform: translateY(4px);
+    }
 
 }
