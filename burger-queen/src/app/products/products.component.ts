@@ -150,7 +150,6 @@ export class ProductsComponent implements OnInit {
     }
     )
     console.log(order);
-    
   }
   
 
