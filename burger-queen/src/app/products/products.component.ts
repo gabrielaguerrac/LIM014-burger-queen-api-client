@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
 import { ProductsService } from '../services/product/products.service';
+import { OrdersService } from '../services/orders/orders.service'
 import { OrderProductModel} from '../models/orders.model'
 import { FormControl, Validators } from '@angular/forms';
+import jwtDecode from 'jwt-decode';
+
 
 @Component({
   selector: 'app-products',
@@ -22,10 +23,10 @@ export class ProductsComponent implements OnInit {
   show: boolean
   showButton: boolean
   nameClient: FormControl
-  name: string
+  client: string
   today: number 
 
-  constructor(private productsService: ProductsService,) { 
+  constructor(private productsService: ProductsService, private orderService: OrdersService) { 
     this.productItem = []
     this.items = []
     this.products = [] //contiene todos
@@ -33,7 +34,7 @@ export class ProductsComponent implements OnInit {
     this.show = false
     this.showButton = false
     this.nameClient = new FormControl('', [Validators.required]);
-    this.name = ""
+    this.client = ""
     this.today = Date.now()
   }
 
@@ -57,6 +58,8 @@ export class ProductsComponent implements OnInit {
       return elem.type === category;
     })
   }
+
+  // Métodos para el componente del Modal
   getModal(element: boolean){
     this.show = element
   }
@@ -65,7 +68,7 @@ export class ProductsComponent implements OnInit {
   }
   getName(element: boolean, ){
     this.show = element
-    this.name = this.nameClient.value
+    this.client = this.nameClient.value
     this.nameClient.reset()
   }
   addItemToCar(item: any){ 
@@ -87,6 +90,8 @@ export class ProductsComponent implements OnInit {
     }    
     this.getTotal()
   }
+
+  // Métodos para el componente del carrito de compras
   minousOneItem(item: OrderProductModel){
     this.productItem = this.productItem.map((el)=>{
       if (el.product.id === item.product.id && el.qty > 1) {
@@ -123,6 +128,32 @@ export class ProductsComponent implements OnInit {
         this.showButton=false
       }
   }
+
+  // Método para crear una nueva orden y enviar a Kitchen
+  newOrderClient(client: any){
+    const token: any = localStorage.getItem('accessToken')
+    const user: any = jwtDecode(token);
+    let order = {
+      userId: user.uid,
+      client: this.client,
+      products: this.productItem.map((item) => ({
+        productId: item.product.id,
+        qty: item.qty,
+      })),
+    }
+    this.orderService.createOrder(order)
+    .subscribe((response) => {
+      console.log(response);
+      this.productItem = [];
+      client = client.value;
+      this.getTotal()
+    }
+    )
+    console.log(order);
+    
+  }
+  
+
   //Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
   // filter(elemento: Array<ProductDetailModel>){
   //   elemento.forEach((el: ProductDetailModel)=>{

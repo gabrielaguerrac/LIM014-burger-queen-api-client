@@ -33,7 +33,7 @@
     </section>
 
     <orders-car 
-      [name]="name"
+      [client]="client"
       [today]="today"
       [productItem]="productItem"
       [total]="total"
@@ -41,7 +41,8 @@
       (addToCar)="addItemToCar($event)"
       (minousOneItem)="minousOneItem($event)"
       (plusOneItem)="plusOneItem($event)"
-      (trashItem)="trashItem($event)">
+      (trashItem)="trashItem($event)"
+      (newOrderClient)="newOrderClient($event)">
     </orders-car>
       
   </section>

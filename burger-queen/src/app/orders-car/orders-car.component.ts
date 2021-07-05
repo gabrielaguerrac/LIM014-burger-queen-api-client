@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { OrderProductModel } from '../models/orders.model';
+import { IOrdersModel, OrderProductModel } from '../models/orders.model';
 import { IProductsModel, ProductDetailModel } from '../models/product.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { IProductsModel, ProductDetailModel } from '../models/product.model';
   styleUrls: ['./orders-car.component.css']
 })
 export class OrdersCarComponent implements OnInit {
-  @Input() name: string
+  @Input() client: string
   @Input() today: number
   @Input() productItem:any
   @Input() total:number = 0
@@ -17,9 +17,10 @@ export class OrdersCarComponent implements OnInit {
   @Output() minousOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() plusOneItem: EventEmitter<OrderProductModel> = new EventEmitter()
   @Output() trashItem: EventEmitter<OrderProductModel> = new EventEmitter()
+  @Output() newOrderClient: EventEmitter<IOrdersModel> = new EventEmitter()
 
   constructor() {
-    this.name = ""
+    this.client = ""
     this.productItem = []
     this.today = Date.now()
   }
@@ -38,5 +39,8 @@ export class OrdersCarComponent implements OnInit {
   }
   trash(product: any){
     this.trashItem.emit(product)
+  }
+  newOrder(client: any){
+    this.newOrderClient.emit(client)
   }
 }

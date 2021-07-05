@@ -1,5 +1,5 @@
 <section class="container-order-info">
-    <h2>{{name}}</h2>
+    <h2>{{client}}</h2>
     <h4>{{today | date: 'medium'}}</h4>
 </section>
 
@@ -37,6 +37,6 @@
     </section>
 
     <section>
-        <button *ngIf="showButton" class="btn-general">Send to Kitchen</button>
+        <button *ngIf="showButton" class="btn-general" (click)="newOrder(client)">Send to Kitchen</button>
     </section>
 </section>    
