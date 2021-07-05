@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 // import { Token } from 'src/app/models/auth';
 import { Observable } from 'rxjs';
 import { IOrdersModel,OrdersModel, OrderProductModel, OrderDetailProductModel } from '../../models/orders.model';
+import { ProductDetailModel } from 'src/app/models/product.model';
 
 
 @Injectable({
@@ -29,8 +30,8 @@ export class OrdersService {
   // updateOrder(uid: any, body: any) {
   //   return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
   // }
-  // createOrder(body: any) {
-  //   return this.http.post<OrdersModel>(`${this.url}${this.endpoint}`, body,)
-  // }
+  createOrder(body: any) {
+    return this.http.post<Array<ProductDetailModel>>(`${this.url}${this.endpoint}`, body,)
+  }
 }
 

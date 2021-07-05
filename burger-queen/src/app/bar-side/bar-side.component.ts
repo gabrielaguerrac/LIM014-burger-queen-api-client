@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 
 @Component({
@@ -7,7 +7,6 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./bar-side.component.css']
 })
 export class BarSideComponent implements OnInit {
-  @Input('') parasabersieswaiter:any;
 
   isAdmin: boolean=true;
 
@@ -22,14 +21,12 @@ export class BarSideComponent implements OnInit {
     const role: any = jwtDecode(token);
 
     if(role.roles.admin){
-      console.log(role.roles.admin);
+      // console.log(role.roles.admin);
       this.isAdmin;
-      console.log(this.isAdmin);
+      // console.log(this.isAdmin);
     } else {
       this.isAdmin =! this.isAdmin;
     }
   }
-
-
 
 }
