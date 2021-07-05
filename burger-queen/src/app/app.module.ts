@@ -25,6 +25,7 @@ import { RoleSelectorComponent } from './role-selector/role-selector.component';
 import { TableClientComponent } from './table-client/table-client.component';
 import { OrdersCarComponent } from './orders-car/orders-car.component';
 import { FormNewUserComponent } from './form-new-user/form-new-user.component';
+import { InventoryAdminComponent } from './inventory-admin/inventory-admin.component';
 
 
 
@@ -46,7 +47,8 @@ import { FormNewUserComponent } from './form-new-user/form-new-user.component';
     RoleSelectorComponent,
     TableClientComponent,
     OrdersCarComponent,
-    FormNewUserComponent
+    FormNewUserComponent,
+    InventoryAdminComponent
   ],
   imports: [
     BrowserModule,

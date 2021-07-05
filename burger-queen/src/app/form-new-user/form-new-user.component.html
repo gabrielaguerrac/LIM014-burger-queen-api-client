@@ -9,19 +9,19 @@
     <section class="modal-content-body">
         <h2>User Register</h2>
         <form [formGroup]="registerUserForm">
-            
             <input type="text" formControlName="name" placeholder="Enter name">
             <input type="text" formControlName="email" placeholder="Enter email">
+            <input type="password" formControlName="password" placeholder="Enter password">
             <div formGroupName="manager" class="checkbox-group">
                 <label>Manager
-                    <input formControlName="isAdmin" type="checkbox">
+                    <input formControlName="isManager" type="checkbox">
                 </label>
                 <label>Waiter - Kitchen
                     <input formControlName="isWaiterKit" type="checkbox">
                 </label>
-
             </div>
-            <button type="submit" class="btn-add-user">Add user</button>
+            <span [hidden]=false class="errorMessage">Check one option</span>
+            <button type="submit" class="btn-add-user" (click)="onSaveForm()">Save</button>
         </form>
     </section>
     <!-- <p>Some text in the Modal..</p> -->

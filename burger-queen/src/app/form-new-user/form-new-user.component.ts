@@ -13,6 +13,8 @@ export class FormNewUserComponent implements OnInit {
   @Output() getForm: EventEmitter<boolean> = new EventEmitter();
   @Output() closeForm: EventEmitter<boolean> = new EventEmitter();
 
+  @Output() newUser: EventEmitter<any> = new EventEmitter();
+
   registerUserForm: FormGroup;
   
   constructor(private usersService: UsersService){
@@ -36,6 +38,7 @@ createFormGroup(){
   return new FormGroup({ //esta funcion recibe un objeto que ser'a parte del group
     name: new FormControl(''),
     email:new FormControl(''),
+    password: new FormControl(''),
     manager: new FormGroup({
       isManager: new FormControl(false),
       isWaiterKit: new FormControl(false)
@@ -47,11 +50,35 @@ onResetForm(){
   this.registerUserForm.reset();
 }
 
-onSaveForm(){
+onSaveForm() {
   console.log('guardado');
-  
+  this.newUser.emit();
 }
+  // this.usersService.addUser({registerUserForm})
+  // if(registerUserForm.value._id == null){
+  //   //new
+  // } else{
+  //   //update
+  // }
 
 
-
+//     this.authService.loginUser({email: this.email, password: this.password})
+//     .pipe(
+//       catchError((error)=>{
+//         console.log('ERROR:', error);
+//         return throwError(error);
+//       })
+//     )  
+//     .subscribe((response) => {                
+//         const token: any = jwtDecode(response.token);
+//         localStorage.setItem('accessToken', response.token);
+//         localStorage.getItem('accessToken');         
+//       if (token.roles.admin === true) {
+//         this.router.navigate(['/user']);
+//       } else {
+//         this.router.navigate(['/roleselector']);
+//       }
+//     })   
+//     form.reset();
+// }
 }

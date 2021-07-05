@@ -22,14 +22,11 @@ export class BarSideComponent implements OnInit {
     const role: any = jwtDecode(token);
 
     if(role.roles.admin){
-      console.log(role.roles.admin);
+      // console.log(role.roles.admin);
       this.isAdmin;
-      console.log(this.isAdmin);
+      // console.log(this.isAdmin);
     } else {
       this.isAdmin =! this.isAdmin;
     }
   }
-
-
-
 }

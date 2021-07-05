@@ -11,5 +11,16 @@ export class InventoryAdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  getFormNewProduct(a: boolean){
+    console.log('click en add product')
+  }
 
+  //Funciones de tabla inventario
+  editProduct(){
+    console.log('click en lapicito')
+  }
+
+  deleteProduct(){
+    console.log('click en tacho')
+  }
 }

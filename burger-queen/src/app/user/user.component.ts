@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDetailModel } from '../models/user.model';
+import { FormUserDetailModel } from '../models/formUser.model';
 import { UsersService } from '../services/user/users.service';
+
 
 
 @Component({
@@ -41,6 +43,16 @@ export class UserComponent implements OnInit {
   allUsers (elem:Array<UserDetailModel>){
     elem.forEach((elem: UserDetailModel)=>{
       this.users.push(elem);
+    })
+  }
+
+  newUser(form: any){
+    //llamar al servicio
+    console.log('en user component');
+    this.usersService.addUser(form)
+    .subscribe((response: any) => {
+      console.log(response,'response new user');
+      
     })
   }
 

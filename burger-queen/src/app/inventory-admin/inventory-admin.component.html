@@ -1,1 +1,48 @@
-<p>inventory-admin works!</p>
+
+<bar-side></bar-side>
+<header>
+    <section class="generalInfo">
+        <h3>Dashboard</h3>
+    </section>
+    <section id="infoWaiter">
+        <h4></h4>
+        <h4>Manager</h4> 
+        <label for="fileButton">
+            <i class="fas fa-camera"></i>
+        </label>
+        <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
+    </section>
+</header>
+<main>
+    <button class="btn-add-product" (click)="getFormNewProduct(true)">New Product</button>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead >
+                    <tr>
+                        <th>Product</th> 
+                        <th>Q In Stock</th>
+                        <th>Q Sold</th>
+                        <th>Price</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!--*ngFor="let singleUser of users"-->
+                        <td>Ham and-cheese sandwich</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>14</td>
+                        <td>
+                            <button class="btn-edit" (click)="editProduct()"><i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                        <td>
+                            <button class="btn-delete" (click)="deleteProduct()"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

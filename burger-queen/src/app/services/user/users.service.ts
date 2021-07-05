@@ -11,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 import { LoginComponent } from "../../login/login.component";
 import { UserDetailModel, IUserModel, RolModel } from 'src/app/models/user.model';
+import { IFormUser, FormUserDetailModel} from 'src/app/models/formUser.model';
 import { Token } from 'src/app/models/auth';
 import { Observable } from 'rxjs';
 
@@ -40,6 +41,20 @@ export class UsersService {
         }
       );
     }
+
+    addUser(newUser: FormUserDetailModel): Observable<FormUserDetailModel>{
+      return this.http.post<FormUserDetailModel>(`${this.url}${this.endpoint}`, newUser);
+    }
+
+    /** POST: add a new hero to the database */
+// addHero(hero: Hero): Observable<Hero> {
+//   return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+//     .pipe(
+//       catchError(this.handleError('addHero', hero))
+//     );
+// }
+
+    
     // setUser (user: UserModel): void{ // xq no devuelve algo se escribe VOID
   //   let user_string = JSON.stringify(user);
   //   localStorage.setItem('currentUser', user_string);
