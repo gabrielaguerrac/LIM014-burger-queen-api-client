@@ -17,6 +17,7 @@ export class FormNewProductComponent implements OnInit {
     name:new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required]),
   })
 
   constructor() { }
