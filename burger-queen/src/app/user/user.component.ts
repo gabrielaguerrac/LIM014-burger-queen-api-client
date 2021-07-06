@@ -10,20 +10,21 @@ import { UsersService } from '../services/user/users.service';
 
 export class UserComponent implements OnInit {
 
-  user: Array<UserDetailModel>
+  userData: any
   users: Array<UserDetailModel>
-  userProperties: Array<any>;
   show: boolean;
 
   constructor(private usersService: UsersService,) { 
-    this.user = [] //arreglo de usuario igualado a response, sin allUsers
+    this.userData = null //arreglo con un solo elemento, un solo obj usuario
     this.users = [] //arreglo con allUsers()
-    this.userProperties = [];
-    this.show = false;
-    
+    this.show = false; 
   }
 
   ngOnInit(): void {
+    this.showUsers()
+  }
+
+  showUsers (){
     this.usersService.getAllUsers()
     .subscribe((response: any) => { 
       // this.user = response
@@ -31,35 +32,27 @@ export class UserComponent implements OnInit {
       this.allUsers(response);
       // this.getUserProperties(this.users);
     })
+
   }
 
   allUsers (elem:Array<UserDetailModel>){
     elem.forEach((elem: UserDetailModel)=>{
       this.users.push(elem);
     })
-  }
+    
+  } 
 
-  newUser(userData: any){
+  newUser(userDetail: any){
     //llamar al servicio
     console.log('en user component');
-    this.usersService.addUser(userData)
+    console.log(userDetail);
+    this.usersService.addUser(userDetail)
     .subscribe((response: any) => {
-      console.log(response,'response new user');
-      
+     this.userData = response; // lo q devuelve mockoon
+      console.log(this.userData);
+      this.users.push(this.userData);
     })
   }
-
-  // getUserProperties(elem: Array<UserDetailModel>){
-  //   console.log(elem);
-  //   const p = Object.keys(elem);
-  //   console.log(p);
-  //   this.userProperties.push(p)
-  
-      
-  //     this.userProperties.push(p);
-  //   })
-  //   console.log(this.userProperties)
-
 
   getFormNewUser(elem: boolean){
     console.log('click en new user');
@@ -70,9 +63,16 @@ export class UserComponent implements OnInit {
     this.show = elem;
   }
 
-  editUser(user: any){
-    console.log(user._id);
-    this.getFormNewUser(user);
+  editUser(singleUser: any){
+    console.log(singleUser._id);
+    this.usersService.getCurrentUser(singleUser._id)
+    .subscribe((response:any) => {
+      console.log(response);
+    })
+  }
+
+  getCurrentUserForm(user: any){
+    this.show= true;
   }
 
   deleteUser(){

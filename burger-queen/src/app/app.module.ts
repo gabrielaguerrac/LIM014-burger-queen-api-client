@@ -26,6 +26,7 @@ import { TableClientComponent } from './table-client/table-client.component';
 import { OrdersCarComponent } from './orders-car/orders-car.component';
 import { FormNewUserComponent } from './form-new-user/form-new-user.component';
 import { InventoryAdminComponent } from './inventory-admin/inventory-admin.component';
+import { FormNewProductComponent } from './form-new-product/form-new-product.component';
 
 
 
@@ -48,7 +49,8 @@ import { InventoryAdminComponent } from './inventory-admin/inventory-admin.compo
     TableClientComponent,
     OrdersCarComponent,
     FormNewUserComponent,
-    InventoryAdminComponent
+    InventoryAdminComponent,
+    FormNewProductComponent
   ],
   imports: [
     BrowserModule,

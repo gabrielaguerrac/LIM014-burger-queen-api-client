@@ -16,8 +16,18 @@ export class ProductsService {
   getAllProducts (): Observable<ProductDetailModel[]>{
     return this.http.get<Array<ProductDetailModel>>(`${this.url}${this.endpoint}`);
   }
+
   getProductsById(uid: any) {
     return this.http.get<IProductsModel>(`${this.url}${this.endpoint}${uid}`);
   }
+
+  addProduct(newProduct: ProductDetailModel): Observable<ProductDetailModel> {
+    return this.http.post<ProductDetailModel>(`${this.url}${this.endpoint}`, newProduct);
+  }
+
+  getCurrentProduct(uid: string){
+    return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+  }
+
   
 }

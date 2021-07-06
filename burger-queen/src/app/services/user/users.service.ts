@@ -41,6 +41,10 @@ export class UsersService {
       );
     }
 
+    getCurrentUser(uid: string){
+      return this.http.get<UserDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+    }
+
     addUser(newUser: UserDetailModel): Observable<UserDetailModel>{
       return this.http.post<UserDetailModel>(`${this.url}${this.endpoint}`, newUser);
     }
@@ -65,7 +69,7 @@ export class UsersService {
   //   return localStorage.getItem('accessToken');
   // }
   // getCurrentUser (){
-  //   let user_string = localStorage.getItem('currentUser');
+  //   let token = localStorage.getItem('accessToken');
   //   if (!isNullOrUndefined(user_string)){
   //     let user = JSON.parse(user_string);
   //     return user;
