@@ -24,9 +24,9 @@ export class OrdersService {
   deleteOrder(uid: string):Observable<OrdersModel> {
     return this.http.delete<OrdersModel>(`${this.url}${this.endpoint}/${uid}`)
   }
-  // getOrderById(uid: any) {
-  //   return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
-  // }
+  getOrderById(uid: string) {
+    return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
+  }
   // updateOrder(uid: any, body: any) {
   //   return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
   // }

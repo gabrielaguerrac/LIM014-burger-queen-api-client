@@ -9,7 +9,7 @@ export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         console.log('INTERCEPTA YUJU');
         const newToken = localStorage.getItem('accessToken')
-        // console.log(newToken);    
+        console.log(newToken);    
         if (newToken) {
             const headers = new HttpHeaders().append('Authorization', `Bearer ${newToken}`)
             req = req.clone({

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserDetailModel } from '../models/user.model';
 import { UsersService } from '../services/user/users.service';
 
-
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -51,6 +49,7 @@ export class UserComponent implements OnInit {
     console.log(userDetail);
     this.usersService.addUser(userDetail)
     .subscribe((response: any) => {
+      
      this.userData = response; // lo q devuelve mockoon
       console.log(this.userData);
       this.users.push(this.userData);
@@ -82,4 +81,7 @@ export class UserComponent implements OnInit {
     console.log('click en delete');
     
   }
+
 }
+
+

@@ -30,14 +30,11 @@ export class InventoryAdminComponent implements OnInit {
       console.log(response);
       this.allProducts(response);
     })
-
   }
-
   allProducts (elem:Array<ProductDetailModel>){
     elem.forEach((elem: ProductDetailModel)=>{
       this.products.push(elem);
     })
-    
   } 
 
   newProduct(productDetail: any){

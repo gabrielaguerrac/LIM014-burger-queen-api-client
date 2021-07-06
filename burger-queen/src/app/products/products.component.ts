@@ -48,7 +48,6 @@ export class ProductsComponent implements OnInit {
     })
     this.getTotal()
   }
-  
   allProducts (elem:Array<ProductDetailModel>){
     elem.forEach((el: ProductDetailModel)=>{
       this.products.push(el)
