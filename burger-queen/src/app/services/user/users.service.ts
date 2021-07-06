@@ -11,7 +11,6 @@ import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 import { LoginComponent } from "../../login/login.component";
 import { UserDetailModel, IUserModel, RolModel } from 'src/app/models/user.model';
-import { IFormUser, FormUserDetailModel} from 'src/app/models/formUser.model';
 import { Token } from 'src/app/models/auth';
 import { Observable } from 'rxjs';
 
@@ -42,8 +41,12 @@ export class UsersService {
       );
     }
 
-    addUser(newUser: FormUserDetailModel): Observable<FormUserDetailModel>{
-      return this.http.post<FormUserDetailModel>(`${this.url}${this.endpoint}`, newUser);
+    getCurrentUser(uid: string){
+      return this.http.get<UserDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+    }
+
+    addUser(newUser: UserDetailModel): Observable<UserDetailModel>{
+      return this.http.post<UserDetailModel>(`${this.url}${this.endpoint}`, newUser);
     }
 
     /** POST: add a new hero to the database */
@@ -66,7 +69,7 @@ export class UsersService {
   //   return localStorage.getItem('accessToken');
   // }
   // getCurrentUser (){
-  //   let user_string = localStorage.getItem('currentUser');
+  //   let token = localStorage.getItem('accessToken');
   //   if (!isNullOrUndefined(user_string)){
   //     let user = JSON.parse(user_string);
   //     return user;

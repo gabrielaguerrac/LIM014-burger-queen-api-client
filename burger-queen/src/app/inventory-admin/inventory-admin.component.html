@@ -1,5 +1,11 @@
 
 <bar-side></bar-side>
+<app-form-new-product
+[show]="show"
+(newProduct)="newProduct($event)"
+(getForm)="getFormNewProduct($event)" 
+(closeForm)="closeFormNewProduct($event)">
+</app-form-new-product>
 <header>
     <section class="generalInfo">
         <h3>Dashboard</h3>
@@ -20,22 +26,22 @@
             <table class="table table-hover">
                 <thead >
                     <tr>
-                        <th>Product</th> 
-                        <th>Q In Stock</th>
-                        <th>Q Sold</th>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Type</th>
                         <th>Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr> <!--*ngFor="let singleUser of users"-->
-                        <td>Ham and-cheese sandwich</td>
-                        <td>5</td>
-                        <td>10</td>
-                        <td>14</td>
+                    <tr *ngFor="let product of products"> <!--*ngFor="let singleUser of users"-->
+                        <td>imagen</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.type}}</td>
+                        <td>{{product.price}}</td>
                         <td>
-                            <button class="btn-edit" (click)="editProduct()"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="btn-edit" (click)="editProduct(product)"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                         <td>
                             <button class="btn-delete" (click)="deleteProduct()"><i class="fas fa-trash-alt"></i></button>

@@ -7,7 +7,7 @@
         <span (click)="closeFormNewUser(false)" class="close">&times;</span>
     </section>
     <section class="modal-content-body">
-        <h2>User Register</h2>
+        <h2>New User</h2>
         <form [formGroup]="registerUserForm" (ngSubmit)="onSaveForm()">
             <input type="text" formControlName="email" placeholder="Enter email">
             <input type="password" formControlName="password" placeholder="Enter password">
@@ -16,13 +16,10 @@
                     <input formControlName="admin" type="checkbox">
                 </label>
             </div>
-            <span [hidden]=false class="errorMessage">Check one option</span>
             <button type="submit" class="btn-add-user">Save</button>
         </form>
     </section>
     <!-- <p>Some text in the Modal..</p> -->
-    
-
   </div>
 
 </div>

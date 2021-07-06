@@ -1,0 +1,19 @@
+<div *ngIf="show" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <section class="modal-content-header">
+          <span (click)="closeFormNewProduct(false)" class="close">&times;</span>
+      </section>
+      <section class="modal-content-body">
+          <h2>New Product</h2>
+          <form [formGroup]="registerProductForm" (ngSubmit)="onSaveForm()">
+              <input type="text" formControlName="name" placeholder="Enter product name">
+              <input type="text" formControlName="type" placeholder="Enter product type">
+              <input type="text" formControlName="price" placeholder="Enter product price">
+              <button type="submit" class="btn-add-user">Save</button>
+          </form>
+      </section>
+      <!-- <p>Some text in the Modal..</p> -->
+    </div>
+  
+  </div>

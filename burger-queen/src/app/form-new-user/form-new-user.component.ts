@@ -13,7 +13,6 @@ export class FormNewUserComponent implements OnInit {
   @Input() user: any;
   @Output() getForm: EventEmitter<boolean> = new EventEmitter();
   @Output() closeForm: EventEmitter<boolean> = new EventEmitter();
-
   @Output() newUser: EventEmitter<any> = new EventEmitter();
 
   registerUserForm = new FormGroup({ //esta funcion recibe un objeto que ser'a parte del group
@@ -45,8 +44,9 @@ closeFormNewUser(elem: boolean) {
 
 // Funciones propias de formulario reactivo
 onSaveForm() {
-  console.log('guardado');
+  console.log('click onsaveform');
   const newUserData = this.registerUserForm.value;
+  console.log(newUserData);
   this.newUser.emit(newUserData);
   this.registerUserForm.reset();
   this.closeForm.emit();
