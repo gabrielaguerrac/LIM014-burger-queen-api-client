@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200&display=swap');
+*{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Barlow';
+}
+
+
+
+@media screen and (min-width: 600px) and (max-width: 1400px){
+    body{
+        display: flex;
+        flex-direction: row;
+    }
+    .head-order{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+    }
+    header {
+        background-color: honeydew;    
+        height: 4.3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .container-all{
+        display: flex;
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        /* width: 15rem; */
+        margin: 2rem;
+        height: 20rem;
+        /* padding: 1rem; */
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 18rem;
+        
+    }
+    .container-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: honeydew;
+        border: solid 1px #8C988F;
+        border-radius: 8px;
+    }
+    h3, h4{
+        margin: 0.8rem;
+    }
+    .container-order{
+        display: flex;
+        justify-content: space-around;
+        background-color: #ADDCB8;
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    
+    ol{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.8rem;
+        align-items: center;
+    }
+    .quantity{
+        border: solid 1px;
+        border-radius: 8px;
+        background-color: #123520;
+        color: white;
+        padding: 0.8rem;
+    }
+
+    /* ---- Botón Ready to deliver ---- */
+    .btn-general {
+        margin: 0.8rem;
+        padding: 0.8rem;
+        border:white;
+        color: white;
+        background-color: #123520;
+        border-radius: 8px;
+        align-self: center;
+        box-shadow: 0 6px #999;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+    .btn-general:active{
+        color: #123520;
+        background-color: white;
+        box-shadow: 0 4px #666;
+        transform: translateY(4px);
+    }
+
+}

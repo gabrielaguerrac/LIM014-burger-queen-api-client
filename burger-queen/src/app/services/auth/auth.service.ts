@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
   /* private domain: string; */
   private endpoint: string;
-  url = "http://localhost:4201"
+  url = "https://burgerqueenplants.herokuapp.com"
   constructor(private http: HttpClient) {
     /* this.domain = environment.domain; */
     this.endpoint = '/auth';

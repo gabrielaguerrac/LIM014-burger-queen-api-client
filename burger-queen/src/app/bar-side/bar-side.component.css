@@ -22,7 +22,9 @@ section{
     transition: .3s ease all;
 }
 .icon:hover{
-   
+    background-color: white;
+    color: #ADDCB8;
+    padding: 0.8rem 1rem;
 }
 /* cuando eliges un ícono de la barra de navegación, se debe cambiar el color*/
 .icon:active {
