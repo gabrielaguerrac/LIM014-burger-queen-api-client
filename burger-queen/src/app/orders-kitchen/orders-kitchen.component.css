@@ -44,25 +44,40 @@
         flex-wrap: wrap;
         flex-direction: column;
         width: 18rem;
+        
     }
     .container-header{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        background-color: honeydew;
+        border: solid 1px #8C988F;
+        border-radius: 8px;
+    }
+    h3, h4{
+        margin: 0.8rem;
     }
     .container-order{
         display: flex;
         justify-content: space-around;
+        background-color: #ADDCB8;
+        border-radius: 8px;
+        font-weight: bold;
     }
-    .generalInfo h3{
-        margin-left:4.3rem ;
-    }
-
-
     
-    .container-all{
+    ol{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.8rem;
+        align-items: center;
+    }
+    .quantity{
+        border: solid 1px;
+        border-radius: 8px;
+        background-color: #123520;
+        color: white;
+        padding: 0.8rem;
     }
 
     /* ---- Botón Ready to deliver ---- */
