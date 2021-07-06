@@ -32,15 +32,18 @@
     
     .container-all{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         flex-wrap: wrap;
-        width: 15rem;
+        /* width: 15rem; */
         margin: 2rem;
         height: 20rem;
         /* padding: 1rem; */
     }
     .container{
         display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 18rem;
     }
     .container-header{
         display: flex;
