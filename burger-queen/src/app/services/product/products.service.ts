@@ -8,7 +8,7 @@ import { IProductsModel, ProductDetailModel } from 'src/app/models/product.model
 })
 export class ProductsService {
   private endpoint: string;
-  url = "http://localhost:4201"
+  url = "https://burgerqueenplants.herokuapp.com"
   constructor(private http: HttpClient) { 
     this.endpoint = '/products';
   }
@@ -26,7 +26,7 @@ export class ProductsService {
   }
 
   getCurrentProduct(uid: string){
-    return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+    return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/${uid}`)
   }
 
   

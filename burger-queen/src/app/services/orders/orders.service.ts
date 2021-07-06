@@ -12,7 +12,7 @@ import { ProductDetailModel } from 'src/app/models/product.model';
 export class OrdersService {
 
   private endpoint: string;
-  url = "http://localhost:4201"
+  url = "https://burgerqueenplants.herokuapp.com"
   constructor(private http: HttpClient) {
     /* this.domain = environment.domain; */
     this.endpoint = '/orders';

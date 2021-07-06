@@ -12,6 +12,7 @@ export class InventoryAdminComponent implements OnInit {
   product: any
   products: Array<ProductDetailModel>
   show: boolean;
+  p: number = 1;
 
   constructor(private productsService: ProductsService) {
     this.product= null;

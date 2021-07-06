@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products"> <!--*ngFor="let singleUser of users"-->
+                    <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }"> <!--*ngFor="let singleUser of users"-->
                         <td>imagen</td>
                         <td>{{product.name}}</td>
                         <td>{{product.type}}</td>
@@ -49,6 +49,7 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </main>

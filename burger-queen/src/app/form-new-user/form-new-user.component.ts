@@ -35,7 +35,6 @@ export class FormNewUserComponent implements OnInit {
 // Funciones para abrir y cerrar formulario
 getFormNewUser(elem:boolean){
   this.getForm.emit(elem);
-  
 }
 
 closeFormNewUser(elem: boolean) {
