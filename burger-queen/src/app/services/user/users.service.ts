@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class UsersService {
     private endpoint: string;
     url = "https://burgerqueenplants.herokuapp.com";
-  
+
     constructor(private http: HttpClient) {
         this.endpoint = '/users';
 
@@ -42,7 +42,7 @@ export class UsersService {
     }
 
     getCurrentUser(uid: string){
-      return this.http.get<UserDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+      return this.http.get<UserDetailModel>(`${this.url}${this.endpoint}/${uid}`)
     }
 
     addUser(newUser: UserDetailModel): Observable<UserDetailModel>{

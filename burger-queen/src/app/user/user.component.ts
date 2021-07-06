@@ -48,6 +48,7 @@ export class UserComponent implements OnInit {
     console.log(userDetail);
     this.usersService.addUser(userDetail)
     .subscribe((response: any) => {
+      
      this.userData = response; // lo q devuelve mockoon
       console.log(this.userData);
       this.users.push(this.userData);

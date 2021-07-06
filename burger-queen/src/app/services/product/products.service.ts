@@ -26,7 +26,7 @@ export class ProductsService {
   }
 
   getCurrentProduct(uid: string){
-    return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/:${uid}`)
+    return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/${uid}`)
   }
 
   
