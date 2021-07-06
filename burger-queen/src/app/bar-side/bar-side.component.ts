@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./bar-side.component.css']
 })
 export class BarSideComponent implements OnInit {
-  
+
   isAdmin: boolean=true;
 
   constructor() { }
@@ -28,5 +28,4 @@ export class BarSideComponent implements OnInit {
       this.isAdmin =! this.isAdmin;
     }
   }
-
 }

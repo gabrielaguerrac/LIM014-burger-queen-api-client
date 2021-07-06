@@ -1,10 +1,5 @@
+
 <bar-side></bar-side>
-<app-form-new-user 
-[show]="show"
-[user]="user"
-(getForm)="getFormNewUser($event)" 
-(closeForm)="closeFormNewUser($event)"
-(newUser)="newUser($event)"></app-form-new-user>
 <header>
     <section class="generalInfo">
         <h3>Dashboard</h3>
@@ -17,31 +12,33 @@
         </label>
         <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
     </section>
-</header>  
+</header>
 <main>
-    <button class="btn-add-user" (click)="getFormNewUser(true)">New User</button>
+    <button class="btn-add-product" (click)="getFormNewProduct(true)">New Product</button>
     <div class="row">
         <div class="col">
             <table class="table table-hover">
                 <thead >
                     <tr>
-                        <th>Id</th>
-                        <th>Email</th>
-                        <th>Manager</th>
+                        <th>Product</th> 
+                        <th>Q In Stock</th>
+                        <th>Q Sold</th>
+                        <th>Price</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let singleUser of users">
-                        <td>{{singleUser._id}}</td>
-                        <td>{{singleUser.email}}</td>
-                        <td>{{singleUser.roles.admin}}</td>
+                    <tr> <!--*ngFor="let singleUser of users"-->
+                        <td>Ham and-cheese sandwich</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td>14</td>
                         <td>
-                            <button class="btn-edit" (click)="editUser(singleUser)"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="btn-edit" (click)="editProduct()"><i class="fas fa-pencil-alt"></i></button>
                         </td>
                         <td>
-                            <button class="btn-delete" (click)="deleteUser()"><i class="fas fa-trash-alt"></i></button>
+                            <button class="btn-delete" (click)="deleteProduct()"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -49,4 +46,3 @@
         </div>
     </div>
 </main>
-

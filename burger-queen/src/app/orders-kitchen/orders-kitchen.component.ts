@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./orders-kitchen.component.css']
 })
 export class OrdersKitchenComponent implements OnInit {
+  isKitchen:boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

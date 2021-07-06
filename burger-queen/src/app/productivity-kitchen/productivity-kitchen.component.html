@@ -1,1 +1,50 @@
-<p>productivity-kitchen works!</p>
+<bar-side></bar-side>
+<header>
+    <section class="generalInfo">
+        <h3>Dashboard</h3>
+    </section>
+    <section id="infoWaiter">
+        <h4></h4>
+        <h4>Manager</h4> 
+        <label for="fileButton">
+            <i class="fas fa-camera"></i>
+        </label>
+        <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
+    </section>
+</header>
+<main>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead >
+                    <tr>
+                        <th>Order</th> 
+                        <th>Total</th>
+                        <th>T.Arrived</th>
+                        <th>T.Deliverd</th>
+                        <th>Total Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> <!--*ngFor="let singleUser of users"-->
+                        <td>001</td>
+                        <td>34</td>
+                        <td>9:55 am</td>
+                        <td></td>
+                        <td></td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr> <!--*ngFor="let singleUser of users"-->
+                        <td>003</td>
+                        <td>20</td>
+                        <td>10:00 am</td>
+                        <td>10:20 am</td>
+                        <td>00:20</td>
+                        <td>Delivered</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>

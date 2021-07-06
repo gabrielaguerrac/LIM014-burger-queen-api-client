@@ -10,8 +10,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { HttpHeaders } from "@angular/common/http";
 import { LoginComponent } from "../../login/login.component";
-import { UserModel } from 'src/app/models/user.model';
+import { UserDetailModel, IUserModel, RolModel } from 'src/app/models/user.model';
 import { Token } from 'src/app/models/auth';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: "root"
@@ -23,10 +24,15 @@ export class UsersService {
 
     constructor(private http: HttpClient) {
         this.endpoint = '/users';
-      }
+
+    }
+
+    getAllUsers(): Observable<UserDetailModel[]>{
+      return this.http.get<Array<UserDetailModel>>(`${this.url}${this.endpoint}`);
+    }
 
     getUserId(uid: string, token: Token){
-        return this.http.post<UserModel>(`${this.url}${this.endpoint}/${uid}`, {
+        return this.http.post<IUserModel>(`${this.url}${this.endpoint}/${uid}`, {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
               Authorization: `Bearer ${token}`
@@ -34,6 +40,20 @@ export class UsersService {
         }
       );
     }
+
+    addUser(newUser: UserDetailModel): Observable<UserDetailModel>{
+      return this.http.post<UserDetailModel>(`${this.url}${this.endpoint}`, newUser);
+    }
+
+    /** POST: add a new hero to the database */
+// addHero(hero: Hero): Observable<Hero> {
+//   return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
+//     .pipe(
+//       catchError(this.handleError('addHero', hero))
+//     );
+// }
+
+    
     // setUser (user: UserModel): void{ // xq no devuelve algo se escribe VOID
   //   let user_string = JSON.stringify(user);
   //   localStorage.setItem('currentUser', user_string);
