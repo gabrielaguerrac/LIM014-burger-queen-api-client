@@ -7,15 +7,10 @@
 (newUser)="newUser($event)"></app-form-new-user>
 <header>
     <section class="generalInfo">
-        <h3>Dashboard</h3>
+        <h2>Dashboard</h2>
     </section>
     <section id="infoWaiter">
-        <h4></h4>
-        <h4>Manager</h4> 
-        <label for="fileButton">
-            <i class="fas fa-camera"></i>
-        </label>
-        <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
+        <h2>Manager</h2> 
     </section>
 </header>  
 <main>
@@ -25,7 +20,7 @@
             <table class="table table-hover">
                 <thead >
                     <tr>
-                        <th>Id</th>
+                        <th>#</th>
                         <th>Email</th>
                         <th>Manager</th>
                         <th>Edit</th>
@@ -33,8 +28,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let singleUser of users">
-                        <td>{{singleUser._id}}</td>
+                    <tr *ngFor="let singleUser of users, index as i">
+                        <td>{{i+1}}</td>
                         <td>{{singleUser.email}}</td>
                         <td>{{singleUser.roles.admin}}</td>
                         <td>

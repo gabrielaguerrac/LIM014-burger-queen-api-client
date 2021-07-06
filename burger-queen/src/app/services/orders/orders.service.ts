@@ -12,7 +12,7 @@ import { ProductDetailModel } from 'src/app/models/product.model';
 export class OrdersService {
 
   private endpoint: string;
-  url = "http://localhost:4201"
+  url = "https://burgerqueenplants.herokuapp.com"
   constructor(private http: HttpClient) {
     /* this.domain = environment.domain; */
     this.endpoint = '/orders';
@@ -24,9 +24,9 @@ export class OrdersService {
   deleteOrder(uid: string):Observable<OrdersModel> {
     return this.http.delete<OrdersModel>(`${this.url}${this.endpoint}/${uid}`)
   }
-  // getOrderById(uid: any) {
-  //   return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
-  // }
+  getOrderById(uid: string) {
+    return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
+  }
   // updateOrder(uid: any, body: any) {
   //   return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
   // }
