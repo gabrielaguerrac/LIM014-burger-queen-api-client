@@ -141,4 +141,10 @@ tr:nth-child(even){
     box-shadow: 0 4px #666;
     transform: translateY(4px);
 }
+
+.my-pagination /deep/ .ngx-pagination .current {
+    margin-top: 1rem;
+    background: honeydew;
+    color: #123520;
+  }
 }

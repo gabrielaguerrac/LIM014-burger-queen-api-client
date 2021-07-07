@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
   userData: any
   users: Array<UserDetailModel>
   show: boolean;
+  p: number = 1;
 
   constructor(private usersService: UsersService,) { 
     this.userData = null //arreglo con un solo elemento, un solo obj usuario
