@@ -7,7 +7,7 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./bar-side.component.css']
 })
 export class BarSideComponent implements OnInit {
-  @Output() logout: EventEmitter<boolean> = new EventEmitter();
+  // @Output() logout: EventEmitter<boolean> = new EventEmitter();
 
   isAdmin: boolean=true;
   token: any
@@ -32,7 +32,12 @@ export class BarSideComponent implements OnInit {
   }
 
   logoutBarside(){
-    this.logout.emit()
-    // localStorage.removeItem('accessToken');
+    localStorage.removeItem('accessToken');
   }
+
+  // logoutBarside(){
+  //   this.logout.emit()
+  //   // localStorage.removeItem('accessToken');
+  // }
+
 }

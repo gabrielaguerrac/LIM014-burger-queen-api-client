@@ -85,10 +85,10 @@ export class InventoryAdminComponent implements OnInit {
 
   }
 
-  logoutBarside(){
-    console.log('dentro de inventoria')
-    localStorage.clear();
-    // console.log('accessToken')
-    // this.router.navigate(['/login']);
-  }
+  // logoutBarside(){
+  //   console.log('dentro de inventoria')
+  //   localStorage.clear();
+  //   // console.log('accessToken')
+  //   // this.router.navigate(['/login']);
+  // }
 }
