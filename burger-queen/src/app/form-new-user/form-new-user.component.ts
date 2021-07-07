@@ -19,6 +19,7 @@ export class FormNewUserComponent implements OnInit {
     email:new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     admin: new FormControl(false),
+    // admin: new FormControl(false),
   })
   
   
