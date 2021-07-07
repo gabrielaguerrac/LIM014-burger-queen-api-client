@@ -5,6 +5,8 @@ import { OrdersService } from '../services/orders/orders.service'
 import { OrderProductModel} from '../models/orders.model'
 import { FormControl, Validators } from '@angular/forms';
 import jwtDecode from 'jwt-decode';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 
 @Component({
@@ -142,6 +144,14 @@ export class ProductsComponent implements OnInit {
       })),
     }
     this.orderService.createOrder(order)
+    .pipe(
+      catchError((error)=>{
+        if (error) {
+          alert('Try again, please. There is something wrong')
+        }
+        return throwError(error)
+      })
+    )
     .subscribe((response) => {
       console.log(response);
       this.productItem = [];
@@ -149,7 +159,7 @@ export class ProductsComponent implements OnInit {
       this.getTotal()
     }
     )
-    console.log(order);
+    /* console.log(order); */
   }
   
 
