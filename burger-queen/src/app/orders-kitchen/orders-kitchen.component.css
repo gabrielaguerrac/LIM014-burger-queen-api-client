@@ -40,7 +40,6 @@
         flex-wrap: wrap;
         flex-direction: column;
         width: 18rem;
-        
     }
     .container-header{
         display: flex;
@@ -65,8 +64,9 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 0.8rem;
         align-items: center;
+        margin: 0.8rem;
+        
     }
     .quantity{
         border: solid 1px;

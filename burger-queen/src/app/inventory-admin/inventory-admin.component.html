@@ -22,6 +22,7 @@
                 <thead >
                     <tr>
                         <th>#</th>
+                        <th></th>
                         <th>Product</th>
                         <th>Type</th>
                         <th>Price</th>
@@ -30,14 +31,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products, index as i"> <!--*ngFor="let singleUser of users"-->
+                    <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }; index as i"> <!--*ngFor="let singleUser of users"-->
                         <td>{{i+1}}</td>
                         <td><img [src]="product.image"></td>
                         <td>{{product.name}}</td>
                         <td>{{product.type}}</td>
                         <td>{{product.price}}</td>
                         <td>
-                            <button class="btn-edit" (click)="editProduct(product)"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="btn-edit" (click)="preEditProduct(product)"
+                            data-toggle="getForm"
+                            ><i class="fas fa-pencil-alt"></i></button>
                         </td>
                         <td>
                             <button class="btn-delete" (click)="deleteProduct()"><i class="fas fa-trash-alt"></i></button>
@@ -45,6 +48,7 @@
                     </tr>
                 </tbody>
             </table>
+            <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
         </div>
     </div>
 </main>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 // Importar componentes
 import { LoginComponent } from './login/login.component';
@@ -19,14 +20,13 @@ import { ProductivityKitchenComponent } from './productivity-kitchen/productivit
 const routes: Routes = [
   {path: '', component: LoginComponent}, //por default
   // { path: '/offers', component: OffersComponent } // TO DO: only users auth
-  {path: 'user', component: UserComponent},
-  {path: 'inventory', component: InventoryAdminComponent},
+  {path: 'user', component: UserComponent, canActivate: [AuthGuard]},
+  //  }, 
+  {path: 'inventory', component: InventoryAdminComponent, canActivate: [AuthGuard]},
   {path: 'user/:id', component: UserComponent},
   {path: 'roleselector', component: RoleSelectorComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'orderscar', component: OrdersCarComponent},
   {path: 'waitertables', component: WaiterTablesComponent},
-  {path: 'orders', component: OrdersComponent},
   {path: 'orderskitchen', component: OrdersKitchenComponent},
   {path: 'productivityk', component:ProductivityKitchenComponent},
   {path: '**', component: Page404Component} //mientras login hasta tener un componente de error

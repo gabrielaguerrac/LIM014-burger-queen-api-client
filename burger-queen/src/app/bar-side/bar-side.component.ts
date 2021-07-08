@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import jwtDecode from 'jwt-decode';
 
 @Component({
@@ -7,9 +7,10 @@ import jwtDecode from 'jwt-decode';
   styleUrls: ['./bar-side.component.css']
 })
 export class BarSideComponent implements OnInit {
+  // @Output() logout: EventEmitter<boolean> = new EventEmitter();
 
   isAdmin: boolean=true;
-
+  token: any
   constructor() { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class BarSideComponent implements OnInit {
 
   getRole(){
     const token: any = localStorage.getItem('accessToken');
+    this.token = token;
     const role: any = jwtDecode(token);
 
     if(role.roles.admin){
@@ -28,4 +30,14 @@ export class BarSideComponent implements OnInit {
       this.isAdmin =! this.isAdmin;
     }
   }
+
+  logoutBarside(){
+    localStorage.removeItem('accessToken');
+  }
+
+  // logoutBarside(){
+  //   this.logout.emit()
+  //   // localStorage.removeItem('accessToken');
+  // }
+
 }

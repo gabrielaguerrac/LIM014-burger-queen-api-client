@@ -10,36 +10,18 @@
 
         <section class="container-all">
 
-            <section class="container">
-                
-                <section class="container-header">
-                    <section>
-                        <h3>Order 1</h3>
-                        <h4>Start: 13:39</h4>
-                    </section>
-                    <section>
-                        <h3>Total Time:</h3>
-                        <h4>End:___</h4>
-                    </section>
+            <section class="container" *ngFor="let order of orders, index as i">  
+                <section class="container-header" >
+                        <h3>Order {{i+1}}.</h3>
+                        <h3>{{order.client | uppercase}}</h3>
+                        <h4>{{order.dateEntry | date: 'shortTime'}}</h4>
                 </section>
-
-                <section class="container-order">
-                    <ol>
-                        <li>Ham and-cheese sandwich</li>
-                        <p class="quantity">4</p>
-                    </ol>
-                    <ol>
-                        <li>Mix Herbal Tea</li>
-                        <p class="quantity">2</p>
-                    </ol>
-                    <ol>
-                        <li>Ice cream</li>
-                        <p class="quantity">2</p>
+                <section class="container-order" > 
+                    <ol >
+                        <li>{{order.products[0].product.name}}</li>
                     </ol>
                 </section>
-
-                <button class="btn-general" >Ready to deliver</button>
-
+                <button class="btn-general" >It's hot</button>
             </section>
 
         </section>

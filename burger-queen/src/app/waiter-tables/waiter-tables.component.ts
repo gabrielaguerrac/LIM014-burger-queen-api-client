@@ -1,12 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Table } from '../models/table.model';
 import { OrdersService } from '../services/orders/orders.service';
-// import { OrdersComponent } from '../orders/orders.component';
 import { catchError} from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { OrdersModel, OrderProductModel, OrderDetailProductModel } from '../models/orders.model';
-import { OrdersComponent } from '../orders/orders.component';
-
 
 @Component({
   selector: 'app-waiter-tables',
@@ -14,7 +10,6 @@ import { OrdersComponent } from '../orders/orders.component';
   styleUrls: ['./waiter-tables.component.css']
 })
 export class WaiterTablesComponent implements OnInit {
-  // @Input() orders: Array<OrdersModel>;
 
   // orders = []; //como usuarios =[]
   isWaiter:boolean= true;
@@ -65,7 +60,7 @@ export class WaiterTablesComponent implements OnInit {
       })
   } 
       
-   }
+}
 
   
   

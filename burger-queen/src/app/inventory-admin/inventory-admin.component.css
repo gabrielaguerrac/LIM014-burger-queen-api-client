@@ -4,7 +4,6 @@
     margin:0;
     box-sizing: border-box;
     text-decoration: none;
-    
 }
 @media screen and (min-width: 600px) and (max-width: 1400px){
     .bar-header{
@@ -68,7 +67,7 @@ main{
     overflow: hidden;
     border-radius: 8px;
     margin-top: 2rem;
-    
+    width: 50rem;
 }
 
 thead {
@@ -77,7 +76,6 @@ thead {
     font-family: 'Barlow';
     font-size: 1.2rem;
     font-weight: 900;
-    
 }
 
 td{
@@ -141,4 +139,16 @@ tr:nth-child(even){
     box-shadow: 0 4px #666;
     transform: translateY(4px);
 }
+
+img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    margin-top: 1rem;
+    background: honeydew;
+    color: #123520;
+  }
 }

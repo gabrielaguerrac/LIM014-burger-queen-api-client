@@ -12,6 +12,7 @@ export class InventoryAdminComponent implements OnInit {
   product: any
   products: Array<ProductDetailModel>
   show: boolean;
+  p: number = 1;
 
   constructor(private productsService: ProductsService) {
     this.product= null;
@@ -59,15 +60,35 @@ export class InventoryAdminComponent implements OnInit {
   }
 
   //Funciones de tabla inventario
-  editProduct(singleProduct: any){
+  preEditProduct(singleProduct: any){
     console.log(singleProduct._id);
     this.productsService.getCurrentProduct(singleProduct._id)
     .subscribe((response:any) => {
       console.log(response);
     })
   }
+  editProduct(singleProduct: any){
+    // console.log(singleProduct._id);
+    // this.productsService.getCurrentProduct(singleProduct._id)
+    // .subscribe((response:any) => {
+    //   console.log(response);
+    // })
+  }
 
   deleteProduct(){
     console.log('click en tacho')
   }
+
+  // modal del edit
+  openModalWithData(id: any){
+    this.getFormNewProduct(true);
+
+  }
+
+  // logoutBarside(){
+  //   console.log('dentro de inventoria')
+  //   localStorage.clear();
+  //   // console.log('accessToken')
+  //   // this.router.navigate(['/login']);
+  // }
 }

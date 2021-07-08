@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/interceptor/token.interceptor';
 import { UsersService } from './services/user/users.service';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +59,7 @@ import { FormNewProductComponent } from './form-new-product/form-new-product.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [
     UsersService, 

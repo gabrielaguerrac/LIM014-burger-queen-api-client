@@ -19,6 +19,7 @@ export class FormNewUserComponent implements OnInit {
     email:new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     admin: new FormControl(false),
+    // admin: new FormControl(false),
   })
   
   
@@ -35,7 +36,6 @@ export class FormNewUserComponent implements OnInit {
 // Funciones para abrir y cerrar formulario
 getFormNewUser(elem:boolean){
   this.getForm.emit(elem);
-  
 }
 
 closeFormNewUser(elem: boolean) {

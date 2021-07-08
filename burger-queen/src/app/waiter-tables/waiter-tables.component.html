@@ -7,6 +7,8 @@
         </header>  
     </section>
         <main>
-            <!-- <orders [data]="orders" (borrar)="borrarOrder($event)" *ngFor="let order of orders"></orders> -->
-            <app-orders [data]="order" (deliver)="deliverOrder($event)" *ngFor="let order of orders"></app-orders>
+            <app-orders 
+                [data]="order" 
+                (deliver)="deliverOrder($event)" *ngFor="let order of orders, index as i">
+            </app-orders>
         </main>
