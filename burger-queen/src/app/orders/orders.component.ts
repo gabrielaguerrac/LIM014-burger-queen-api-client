@@ -23,11 +23,11 @@ export class OrdersComponent implements OnInit {
     this.isDisplay =! this.isDisplay;
   }
 
-  deliverOrder(_id: string){
+  deliverOrder(item: any){
     console.log('click en yes');
     //desaparecer la orden de la pantalla
-    console.log(_id);
-    this.deliver.emit(_id) //PARTE DE EMIT
+    console.log(item);
+    this.deliver.emit(item) //PARTE DE EMIT
   }
   
 }

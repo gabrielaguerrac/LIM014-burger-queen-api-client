@@ -27,9 +27,9 @@ export class OrdersService {
   getOrderById(uid: string) {
     return this.http.get<OrdersModel>(`${this.url}${this.endpoint}/${uid}`);
   }
-  // updateOrder(uid: any, body: any) {
-  //   return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
-  // }
+  updateOrder(uid: any, body: any) {
+    return this.http.put<OrdersModel>(`${this.url}${this.endpoint}/${uid}`, body)
+  }
   createOrder(body: any) {
     return this.http.post<Array<ProductDetailModel>>(`${this.url}${this.endpoint}`, body,)
   }

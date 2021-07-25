@@ -8,7 +8,7 @@
             <h2>Kitchen</h2> 
         </header>  
 
-        <section class="container-all">
+            <!-- <article></article> --> <!-- muestra en columnas la section de container -->
 
             <section class="container" *ngFor="let order of orders, index as i">  
                 <section class="container-header" >
@@ -17,13 +17,14 @@
                         <h4>{{order.dateEntry | date: 'shortTime'}}</h4>
                 </section>
                 <section class="container-order" > 
-                    <ol >
-                        <li>{{order.products[0].product.name}}</li>
+                    <ol *ngFor= "let item of order.products" >
+                        <li >{{item.product.name}}</li>
+                        <p class="quantity">{{item.qty}}</p>
                     </ol>
                 </section>
-                <button class="btn-general" >It's hot</button>
+                <button class="btn-general" (click)='updateOneOrder(order)'>It's hot</button>
             </section>
 
-        </section>
+     
     </section>
 </body>

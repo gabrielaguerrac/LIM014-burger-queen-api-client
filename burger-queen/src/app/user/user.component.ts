@@ -71,6 +71,7 @@ export class UserComponent implements OnInit {
     this.usersService.getCurrentUser(singleUser._id)
     .subscribe((response:any) => {
       console.log(response);
+      //LLAMAR 
     })
   }
 
@@ -80,7 +81,7 @@ export class UserComponent implements OnInit {
 
   deleteUser(){
     console.log('click en delete');
-    
+    //traer el user.id más el sevicio de delete
   }
 
 }
