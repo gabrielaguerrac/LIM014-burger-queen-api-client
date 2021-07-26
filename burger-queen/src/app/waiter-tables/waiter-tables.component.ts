@@ -41,10 +41,10 @@ export class WaiterTablesComponent implements OnInit {
   }
 
    deliverOrder(item: any){
-    if (item.status === 'pending') {
+    if (item.status === 'delivering') {
       const order: IOrdersModel ={
         ...item,
-        status: 'delivering',
+        status: 'delivered',
         // dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
       this.orderService.updateOrder(item._id, order)

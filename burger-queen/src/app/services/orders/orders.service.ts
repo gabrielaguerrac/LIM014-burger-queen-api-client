@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Token } from 'src/app/models/auth';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IOrdersModel,OrdersModel, OrderProductModel, OrderDetailProductModel } from '../../models/orders.model';
 import { ProductDetailModel } from 'src/app/models/product.model';
 
@@ -10,6 +10,14 @@ import { ProductDetailModel } from 'src/app/models/product.model';
   providedIn: 'root'
 })
 export class OrdersService {
+
+  ordenes: OrdersModel[] = []
+  private cart = new BehaviorSubject<Array<OrdersModel>>([]);
+  cart$ = this.cart.asObservable();
+  publicarOrden(orden: OrdersModel) {
+    this.ordenes = [...this.ordenes, orden]
+    this.cart.next(this.ordenes)
+  }
 
   private endpoint: string;
   url = "https://burgerqueenplants.herokuapp.com"

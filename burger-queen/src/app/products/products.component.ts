@@ -43,7 +43,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getAllProducts()
     .subscribe((response: any) => { 
-      console.log(response);
       this.items = response.products
       this.allProducts(response)
       this.filterType('burger')
@@ -88,7 +87,7 @@ export class ProductsComponent implements OnInit {
           if (!productExistInCar) {
             this.productItem.push(modelProduct)
           }
-          console.log(this.productItem);
+          // console.log(this.productItem);
     }    
     this.getTotal()
   }
@@ -135,7 +134,8 @@ export class ProductsComponent implements OnInit {
   newOrderClient(client: any){
     const token: any = localStorage.getItem('accessToken')
     const user: any = jwtDecode(token);
-    let order = {
+    const order = {
+      status: "pending",
       userId: user.uid,
       client: this.client,
       products: this.productItem.map((item) => ({
@@ -153,22 +153,14 @@ export class ProductsComponent implements OnInit {
       })
     )
     .subscribe((response) => {
+      // this.orderService.publicarOrden(response)
       console.log(response);
       this.productItem = [];
       client = client.value;
       this.getTotal()
-    }
-    )
-    /* console.log(order); */
+    })
+    
   }
-  
-
-  //Se filtra por los 3 tipos de productos: Burger, Drink & Side-Dish
-  // filter(elemento: Array<ProductDetailModel>){
-  //   elemento.forEach((el: ProductDetailModel)=>{
-  //     this.productsTypes.add(el.type)
-  //   })
-  // }
 }
 
 

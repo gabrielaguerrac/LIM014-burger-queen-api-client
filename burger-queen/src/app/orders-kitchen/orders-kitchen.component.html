@@ -7,10 +7,13 @@
             <h2>Dashboard</h2>
             <h2>Kitchen</h2> 
         </header>  
+        <ul class="">
+            <li class="" [ngClass]="{ 'clicked': clicked }" (click)="changeTrue()">Pending</li>
+            <li class="" [ngClass]="{ 'clicked': !clicked }" (click)="changeFalse()">Ready</li>
+        </ul>
 
-            <!-- <article></article> --> <!-- muestra en columnas la section de container -->
-
-            <section class="container" *ngFor="let order of orders, index as i">  
+        <article class="" *ngIf="clicked">
+            <section class="container" *ngFor="let order of orderPending, index as i">  
                 <section class="container-header" >
                         <h3>Order {{i+1}}.</h3>
                         <h3>{{order.client | uppercase}}</h3>
@@ -22,8 +25,26 @@
                         <p class="quantity">{{item.qty}}</p>
                     </ol>
                 </section>
-                <button class="btn-general" (click)='updateOneOrder(order)'>It's hot</button>
+                <button class="btn-general" (click)='updateOneOrder(order)'>It's ready</button>
             </section>
+        </article>
+
+        <article *ngIf="!clicked">
+            <section class="container" *ngFor="let order of orderDelivering, index as i">  
+                <section class="container-header" >
+                        <h3>Order {{i+1}}.</h3>
+                        <h3>{{order.client | uppercase}}</h3>
+                        <h4>{{order.dateEntry | date: 'shortTime'}}</h4>
+                </section>
+                <section class="container-order" > 
+                    <ol *ngFor= "let item of order.products" >
+                        <li >{{item.product.name}}</li>
+                        <p class="quantity">{{item.qty}}</p>
+                    </ol>
+                </section>
+                <button class="btn-general" (click)='updateOneOrder(order)'>It's ready</button>
+            </section>
+        </article>
 
      
     </section>

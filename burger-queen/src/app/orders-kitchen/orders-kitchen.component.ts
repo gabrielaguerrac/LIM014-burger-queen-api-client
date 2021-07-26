@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { throwError } from 'rxjs';
+import * as dayjs from 'dayjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { IOrdersModel, OrderProductModel, OrdersModel } from '../models/orders.model';
 import { OrdersService } from '../services/orders/orders.service';
@@ -10,15 +11,22 @@ import { OrdersService } from '../services/orders/orders.service';
   styleUrls: ['./orders-kitchen.component.css']
 })
 export class OrdersKitchenComponent implements OnInit {
+  clicked: boolean;
   isKitchen:boolean = true;
   orders: any
-  orderPending: Array<IOrdersModel>
-  orderDelivering: Array<IOrdersModel>
+  orderPending: Array<OrdersModel>
+  orderDelivering: Array<OrdersModel>
   
+  pedido$:Observable<OrdersModel[]>;
+  itemList: any;
+
+
   constructor(private orderService: OrdersService) {
-    this.orders = []
-    this.orderPending = []
-    this.orderDelivering = []
+    this.clicked = true;
+    this.orders = [];
+    this.orderPending = [];
+    this.orderDelivering = [];
+    this.pedido$=this.orderService.cart$;
   }
 
   ngOnInit(): void {
@@ -26,38 +34,50 @@ export class OrdersKitchenComponent implements OnInit {
   }
 
   bringAllOrders(){
-
-    
     this.orderService.getAllOrders()
-    .pipe(
-      catchError((error)=>{
-        // console.log('ERROR:', error);
-        return throwError(error);
-      })
-    )  
-    .subscribe((response: any) => { 
+    .subscribe((response) => { 
         this.orders = response;
-        console.log(this.orders);
-   })
+        this.orderPending = response.filter((elem: any) => elem.status === 'pending')
+        .sort((a: OrdersModel, b: OrdersModel)=> {
+          let formatA: any = dayjs(a.dateEntry).format('HHmmss')
+          let formatB: any = dayjs(b.dateEntry).format('HHmmss')
+          return formatA - formatB;
+        })
+        this.orderDelivering = response.filter((elem: any) => elem.status === 'delivering')
+        .sort((a: OrdersModel, b: OrdersModel) => {
+          let formatA: any = dayjs(a.dateEntry).format('HHmmss')
+          let formatB: any = dayjs(b.dateEntry).format('HHmmss')
+          return formatA - formatB;
+        })
+    })
   }
-
+  changeFalse() {
+    this.clicked = false
+  }
+  changeTrue() {
+    this.clicked = true
+  }
   updateOneOrder(item: any){
-    // const dateProcesed = dayjs();
+    console.log(item);
+    const dateProcesed = dayjs();
     if (item.status === 'pending') {
-      const order: IOrdersModel ={
+      const order ={
         ...item,
         status: 'delivering',
-        // dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
+        dateProcesed: dateProcesed.format('YYYY-MM-DD HH:mm:ss')
       }
       this.orderService.updateOrder(item._id, order)
-      .pipe(catchError((error)=>{
-        return throwError(error);
-      })
-      )
       .subscribe(()=>{
-        
+        this.orderService.publicarOrden(item);
         this.bringAllOrders()
       })  
     }
   }
+
 }
+
+// .pipe(
+//   catchError((error)=>{
+//     return throwError(error);
+//   })
+// )  
