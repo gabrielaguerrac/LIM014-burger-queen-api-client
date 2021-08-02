@@ -6,11 +6,12 @@
       </section>
       <section class="modal-content-body">
           <h2>New Product</h2>
-          <form [formGroup]="registerProductForm" (ngSubmit)="onSaveForm()">
-              <input type="text" formControlName="name" placeholder="Enter product name">
-              <input type="text" formControlName="type" placeholder="Enter product type">
-              <input type="text" formControlName="price" placeholder="Enter product price">
-              <input type="text" formControlName="image" placeholder="Enter product image">
+          <form [formGroup]="registerProductForm" (ngSubmit)="onSaveForm()" >
+              <input type="text" formControlName="_id" placeholder="No pongas nada" [disabled]="!dataEdit._id">
+              <input type="text" formControlName="name" placeholder="Enter product name" > <!-- [(ngModel)]="dataEdit.name">-->
+              <input type="text" formControlName="type" placeholder="Enter product type" > <!--[(ngModel)]="dataEdit.type"> -->
+              <input type="text" formControlName="price" placeholder="Enter product price"> <!--[(ngModel)]="dataEdit.price">-->
+              <input type="text" formControlName="image" placeholder="Enter product image" > <!--[(ngModel)]="dataEdit.image"> -->
               <button type="submit" class="btn-add-user">Save</button>
           </form>
       </section>

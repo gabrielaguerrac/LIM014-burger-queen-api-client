@@ -29,5 +29,13 @@ export class ProductsService {
     return this.http.get<ProductDetailModel>(`${this.url}${this.endpoint}/${uid}`)
   }
 
+  updateProduct(uid: string, body: ProductDetailModel): Observable<ProductDetailModel> {
+    return this.http.put<ProductDetailModel>(`${this.url}${this.endpoint}`, body);
+  }
+
+  deleteProduct(uid: string){
+    return this.http.delete<ProductDetailModel>(`${this.url}${this.endpoint}/${uid}`)
+  }
+
   
 }

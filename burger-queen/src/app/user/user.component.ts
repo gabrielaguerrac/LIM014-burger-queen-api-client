@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDetailModel } from '../models/user.model';
+import { catchError } from 'rxjs/operators';
+import { UserDetailModel, IUserModel } from '../models/user.model';
 import { UsersService } from '../services/user/users.service';
 
 @Component({
@@ -10,19 +11,31 @@ import { UsersService } from '../services/user/users.service';
 
 export class UserComponent implements OnInit {
 
+  // userData: IUserModel
   userData: any
   users: Array<UserDetailModel>
   show: boolean;
   p: number = 1;
+  objdeleted: Object={
+    _id:'',
+    email:'',
+    roles: {
+      admin: null
+    }
+  }
 
   constructor(private usersService: UsersService,) { 
-    this.userData = null //arreglo con un solo elemento, un solo obj usuario
+    this.userData = {} //arreglo con un solo elemento, un solo obj usuario
     this.users = [] //arreglo con allUsers()
     this.show = false; 
   }
 
   ngOnInit(): void {
     this.showUsers()
+  }
+
+  changeRole(role:string){
+
   }
 
   showUsers (){
@@ -78,10 +91,40 @@ export class UserComponent implements OnInit {
     this.show= true;
   }
 
-  deleteUser(){
-    console.log('click en delete');
-    
+  deleteUser(id: any){
+    console.log(id);
+    this.removeItem(id)
+    this.usersService.deleteUser(id)
+    .subscribe((response)=>{
+     this.objdeleted = response
+     console.log(this.objdeleted);
+     
+      })
+    }
+ 
+  removeItem(idD: any) {
+    // this.listCart = this.cart.getValue();
+    let objIndex = this.users.findIndex(((obj: any) =>{ 
+      console.log(obj._id)
+      console.log(idD)
+      obj._id === idD
+    }));
+    console.log(objIndex)
+    if (objIndex != -1) {
+      // this.listCart[objIndex].qty = 1;
+      this.users.splice(objIndex, 1);
+    }
+   
   }
+
+  ngOnDestoy(){
+    this.showUsers()
+  }
+
+  // deleteUser(){
+  //   console.log('click en tacho');
+    
+  // }
 
 }
 

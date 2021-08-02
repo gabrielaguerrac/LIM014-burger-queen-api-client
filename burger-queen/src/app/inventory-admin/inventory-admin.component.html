@@ -2,6 +2,7 @@
 <bar-side></bar-side> <!--(logout)="logoutBarside()"-->
 <app-form-new-product
 [show]="show"
+[dataEdit]="dataEdit"
 (newProduct)="newProduct($event)"
 (getForm)="getFormNewProduct($event)" 
 (closeForm)="closeFormNewProduct($event)">
@@ -43,7 +44,7 @@
                             ><i class="fas fa-pencil-alt"></i></button>
                         </td>
                         <td>
-                            <button class="btn-delete" (click)="deleteProduct()"><i class="fas fa-trash-alt"></i></button>
+                            <button class="btn-delete" (click)="deleteProduct(product._id)"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 </tbody>

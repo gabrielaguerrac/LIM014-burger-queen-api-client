@@ -11,11 +11,11 @@
         <form [formGroup]="registerUserForm" (ngSubmit)="onSaveForm()">
             <input type="text" formControlName="email" placeholder="Enter email">
             <input type="password" formControlName="password" placeholder="Enter password">
-            <div class="checkbox-group">
-                <label>Admin
-                    <input formControlName="admin" type="checkbox">
-                </label>
-            </div>
+            <label>Is Admin?</label>
+            <select class="custom-select"  formControlName="admin">
+                <option [value]="true">Yes</option>
+                <option [value]="false">No</option>
+            </select>
             <button type="submit" class="btn-add-user">Save</button>
         </form>
     </section>

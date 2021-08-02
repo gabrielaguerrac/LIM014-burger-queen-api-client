@@ -31,22 +31,16 @@ export class UsersService {
       return this.http.get<Array<UserDetailModel>>(`${this.url}${this.endpoint}`);
     }
 
-    getUserId(uid: string, token: Token){
-        return this.http.post<IUserModel>(`${this.url}${this.endpoint}/${uid}`, {
-            headers: new HttpHeaders({
-              'Content-Type':  'application/json',
-              Authorization: `Bearer ${token}`
-            })
-        }
-      );
-    }
-
     getCurrentUser(uid: string){
       return this.http.get<UserDetailModel>(`${this.url}${this.endpoint}/${uid}`)
     }
 
     addUser(newUser: UserDetailModel): Observable<UserDetailModel>{
       return this.http.post<UserDetailModel>(`${this.url}${this.endpoint}`, newUser);
+    }
+
+    deleteUser(uid: string){
+      return this.http.delete<UserDetailModel>(`${this.url}${this.endpoint}/${uid}`)
     }
 
     /** POST: add a new hero to the database */
@@ -57,7 +51,17 @@ export class UsersService {
 //     );
 // }
 
-    
+  // getUserId(uid: string, token: Token){
+    //     return this.http.post<IUserModel>(`${this.url}${this.endpoint}/${uid}`, {
+    //         headers: new HttpHeaders({
+    //           'Content-Type':  'application/json',
+    //           Authorization: `Bearer ${token}`
+    //         })
+    //     }
+    //   );
+    // }    
+
+
     // setUser (user: UserModel): void{ // xq no devuelve algo se escribe VOID
   //   let user_string = JSON.stringify(user);
   //   localStorage.setItem('currentUser', user_string);
