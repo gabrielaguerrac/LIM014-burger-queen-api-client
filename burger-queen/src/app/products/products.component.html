@@ -6,43 +6,57 @@
     [nameClient]="nameClient">
   </app-table-client>
 
-  <section class="dashboard-waiter">
+  <body>
+ 
+    <bar-side></bar-side> 
 
-    <bar-side></bar-side>
-    
-    <section>  
-      <!-- Botones de la cabecera -->
-      <section class="buttons-header">
-        <section class="buttons-types">
-          <button (click)="filterType('burger')">Burger</button>
-          <button (click)="filterType('drink')">Drink</button>
-          <button (click)="filterType('side dishes')">Side Dishes</button>
+    <section class="container-all">
+
+      <header>
+        <h2>Dashboard</h2>
+        <h2>Waiter</h2> 
+      </header>
+
+      <section class="dashboard-waiter">
+
+        <section>  
+          <section class="buttons-header">
+            <section class="buttons-types">
+              <button (click)="filterType('burger')">Burger</button>
+              <button (click)="filterType('drink')">Drink</button>
+              <button (click)="filterType('side dishes')">Side Dishes</button>
+            </section>
+            
+            <button id="btn-new-order" (click)="getModal(true)">New order</button>
+          </section>
+
+          <section class="container-product">
+            <section class="container-product-card" *ngFor="let product of items">
+                <img [src]="product.image">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.price | currency:'S/.' }}</p>
+                <button (click)="addItemToCar(product)">Add Item</button>
+            </section>
+          </section>
         </section>
+      
+
+        <orders-car 
+          [client]="client"
+          [today]="today"
+          [productItem]="productItem"
+          [total]="total"
+          [showButton]="showButton"
+          (addToCar)="addItemToCar($event)"
+          (minousOneItem)="minousOneItem($event)"
+          (plusOneItem)="plusOneItem($event)"
+          (trashItem)="trashItem($event)"
+          (newOrderClient)="newOrderClient($event)">
+        </orders-car>
         
-        <button id="btn-new-order" (click)="getModal(true)">New order</button>
-      </section>
-
-      <section class="container-product">
-        <section class="container-product-card" *ngFor="let product of items">
-            <img [src]="product.image">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.price | currency:'S/.' }}</p>
-            <button (click)="addItemToCar(product)">Add Item</button>
-        </section>
-      </section>
     </section>
 
-    <orders-car 
-      [client]="client"
-      [today]="today"
-      [productItem]="productItem"
-      [total]="total"
-      [showButton]="showButton"
-      (addToCar)="addItemToCar($event)"
-      (minousOneItem)="minousOneItem($event)"
-      (plusOneItem)="plusOneItem($event)"
-      (trashItem)="trashItem($event)"
-      (newOrderClient)="newOrderClient($event)">
-    </orders-car>
-      
-  </section>
+
+    </section>  
+    
+  </body>

@@ -3,7 +3,7 @@
     <span (click)="closeModal(false)" class="close">&times;</span>
     <h3>NEW ORDER</h3>
 
-    <input [formControl]="nameClient" type="text" placeholder="Client name">
+    <input style="text-transform:capitalize" [formControl]="nameClient" type="text" placeholder="Client name">
     
     <p *ngIf="nameClient.invalid">Please enter client name</p>
     

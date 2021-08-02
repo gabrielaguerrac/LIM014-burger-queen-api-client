@@ -1,19 +1,19 @@
-
-<bar-side></bar-side> <!--(logout)="logoutBarside()"-->
 <app-form-new-product
 [show]="show"
 (newProduct)="newProduct($event)"
 (getForm)="getFormNewProduct($event)" 
 (closeForm)="closeFormNewProduct($event)">
 </app-form-new-product>
-<header>
-    <section class="generalInfo">
+
+<section class="bar-header">
+    <bar-side></bar-side>
+
+    <header>
         <h2>Dashboard</h2>
-    </section>
-    <section id="infoWaiter">
         <h2>Manager</h2> 
-    </section>
-</header>
+    </header>  
+</section>  
+
 <main>
     <button class="btn-add-product" (click)="getFormNewProduct(true)">New Product</button>
     <div class="row">
