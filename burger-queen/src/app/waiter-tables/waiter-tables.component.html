@@ -1,20 +1,14 @@
-    <aside>
+    <section class="bar-header">
         <bar-side></bar-side>
-    </aside> 
 
         <header>
-            <section class="generalInfo">
-                <h3>Dashboard</h3>
-            </section>
-            <section id="infoUser">
-                <h3>Waiter</h3> 
-                <!-- <label for="fileButton">
-                    <i class="fas fa-camera"></i>
-                </label> -->
-                <input hidden type="file" accept="image/png, image/jpeg" value="upload" id="fileButton"/>
-            </section>
+            <h2>Dashboard</h2>
+            <h2>Waiter</h2> 
         </header>  
+    </section>
         <main>
-            <!-- <orders [data]="orders" (borrar)="borrarOrder($event)" *ngFor="let order of orders"></orders> -->
-            <app-orders [data]="order" (deliver)="deliverOrder($event)" *ngFor="let order of orders"></app-orders>
+            <app-orders 
+                [data]="order" 
+                (deliver)="deliverOrder($event)" *ngFor="let order of orders, index as i">
+            </app-orders>
         </main>

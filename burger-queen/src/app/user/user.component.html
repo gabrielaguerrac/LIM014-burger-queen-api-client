@@ -1,18 +1,19 @@
-<bar-side></bar-side>
 <app-form-new-user 
 [show]="show"
 [user]="userData"
 (getForm)="getFormNewUser($event)" 
 (closeForm)="closeFormNewUser($event)"
 (newUser)="newUser($event)"></app-form-new-user>
-<header>
-    <section class="generalInfo">
+
+<section class="bar-header">
+    <bar-side></bar-side>
+
+    <header>
         <h2>Dashboard</h2>
-    </section>
-    <section id="infoWaiter">
         <h2>Manager</h2> 
-    </section>
-</header>  
+    </header>  
+</section>   
+
 <main>
     <button class="btn-add-user" (click)="getFormNewUser(true)">New User</button>
     <div class="row">

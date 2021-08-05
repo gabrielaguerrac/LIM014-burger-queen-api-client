@@ -7,9 +7,7 @@ import { catchError } from 'rxjs/operators';
 
 export class AuthInterceptor implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        console.log('INTERCEPTA YUJU');
-        const newToken = localStorage.getItem('accessToken')
-        console.log(newToken);    
+        const newToken = localStorage.getItem('accessToken')  
         if (newToken) {
             const headers = new HttpHeaders().append('Authorization', `Bearer ${newToken}`)
             req = req.clone({
