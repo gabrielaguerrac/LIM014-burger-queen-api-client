@@ -116,14 +116,14 @@ export class UserComponent implements OnInit {
       this.users.splice(objIndex, 1);
     }
    
-  deleteUser(){
-    console.log('click en delete');
-    //traer el user.id más el sevicio de delete
-  }
+  // deleteUser(){
+  //   console.log('click en delete');
+  //   //traer el user.id más el sevicio de delete
+  // }
 
-  ngOnDestoy(){
-    this.showUsers()
-  }
+  // ngOnDestoy(){
+  //   this.showUsers()
+  // }
 
   // deleteUser(){
   //   console.log('click en tacho');
